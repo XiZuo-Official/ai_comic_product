@@ -60,6 +60,9 @@ Medium
 
 ## Milestone 2: Authentication and User Profile
 
+### Status
+Completed on 2026-07-01.
+
 ### Objective
 Allow a Clerk-authenticated user to access protected routes and manage app-owned profile information.
 
@@ -90,6 +93,9 @@ Medium
 ---
 
 ## Milestone 3: Credits Ledger
+
+### Status
+Completed on 2026-07-01.
 
 ### Objective
 Create the credit accounting foundation used by all paid MVP actions.

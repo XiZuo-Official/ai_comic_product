@@ -2,6 +2,7 @@ import { getDatabaseUrl } from "@ai-comic/config";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
+import * as creditSchema from "./schema/credits";
 import * as projectSchema from "./schema/projects";
 import * as userProfileSchema from "./schema/user-profiles";
 
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV !== "production") {
 
 export const db = drizzle(sql, {
   schema: {
+    ...creditSchema,
     ...projectSchema,
     ...userProfileSchema
   }

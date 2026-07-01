@@ -35,6 +35,9 @@ importers:
       '@ai-comic/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@ai-comic/credits':
+        specifier: workspace:*
+        version: link:../../packages/credits
       '@ai-comic/db':
         specifier: workspace:*
         version: link:../../packages/db
@@ -126,6 +129,25 @@ importers:
       zod:
         specifier: ^3.25.76
         version: 3.25.76
+
+  packages/credits:
+    dependencies:
+      '@ai-comic/db':
+        specifier: workspace:*
+        version: link:../db
+      drizzle-orm:
+        specifier: ^0.44.7
+        version: 0.44.7(postgres@3.4.9)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      tsx:
+        specifier: ^4.20.6
+        version: 4.22.4
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
   packages/db:
     dependencies:

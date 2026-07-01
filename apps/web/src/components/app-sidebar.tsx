@@ -1,5 +1,5 @@
 import { Button } from "@ai-comic/ui/components/button";
-import { FolderKanban, Home, Image, Receipt, UserCircle } from "lucide-react";
+import { Coins, FolderKanban, Home, Image, Receipt, UserCircle } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
@@ -7,6 +7,7 @@ const navItems = [
   { href: "/single-image-mode", icon: Image, label: "Single Image Mode" },
   { href: "/projects", icon: FolderKanban, label: "Projects" },
   { href: "/profile", icon: UserCircle, label: "User Profile" },
+  { href: "/credits", icon: Coins, label: "Credits" },
   { href: "/subscription", icon: Receipt, label: "Subscription" }
 ];
 

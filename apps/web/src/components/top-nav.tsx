@@ -1,11 +1,25 @@
+import { getCreditBalance } from "@ai-comic/credits";
 import { SignedIn, UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 import { ThemeToggle } from "./theme-toggle";
 
-const displayCreditBalance = 120;
+async function getDisplayCreditBalance(): Promise<number> {
+  const { userId } = await auth();
 
-export function TopNav() {
+  if (!userId) {
+    return 0;
+  }
+
+  const account = await getCreditBalance(userId);
+
+  return account.balance;
+}
+
+export async function TopNav() {
+  const displayCreditBalance = await getDisplayCreditBalance();
+
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-950/95">
       <div className="flex h-16 items-center justify-between px-4 sm:px-6">

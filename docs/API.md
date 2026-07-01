@@ -64,6 +64,11 @@ The app-owned profile contract exposes only app-specific profile fields and the 
 - `POST /v1/credits/reservations/:reservationId/commit`
 - `POST /v1/credits/reservations/:reservationId/release`
 
+Milestone 3 implements these endpoints as authenticated route handlers using the Credits module public interface.
+Reservation requests accept `amount`, optional `idempotencyKey`, and optional `reason`.
+Commit and release requests accept optional `idempotencyKey` and optional `reason`.
+Insufficient-credit reservation attempts return an error and do not create a negative balance.
+
 ### Subscription
 - `GET /v1/subscription`
 - `POST /v1/subscription/checkout`

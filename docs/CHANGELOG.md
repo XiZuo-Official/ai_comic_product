@@ -17,6 +17,14 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-01
 
+- Change: Implemented Milestone 3 Credits Ledger and marked it complete.
+- Why it changed: Credits now have domain contracts, persistence, reservation lifecycle behavior, authenticated APIs, a user-facing balance/ledger view, and focused domain tests.
+- Documents updated: `Database.md`, `API.md`, `MILESTONES.md`, `MILESTONE_3_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
+- Change: Marked Milestone 2 Authentication and User Profile as complete and added the completion report.
+- Why it changed: Verification confirmed the implemented Clerk-backed auth/profile boundary satisfies the documented Milestone 2 deliverables and acceptance criteria.
+- Documents updated: `MILESTONES.md`, `MILESTONE_2_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Clarified Milestone 2 authentication ownership around Clerk-managed auth and app-owned profile persistence.
 - Why it changed: The project already approved Clerk for authentication, and duplicate custom session or identity tables would violate maintainability and stability goals.
 - Documents updated: `Decisions.md`, `Database.md`, `API.md`, `MILESTONES.md`, `TASK_BREAKDOWN.md`, `IMPLEMENTATION_ORDER.md`, `MVP.md`, `MVP_FREEZE.md`.

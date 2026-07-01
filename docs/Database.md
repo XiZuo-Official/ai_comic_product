@@ -138,6 +138,19 @@ This migration is additive and does not remove existing data.
 `user_profiles.auth_user_id` stores the authenticated external user id from Clerk for Version 1.0.
 Only the Auth/Profile module may write this table.
 
+## Milestone 3 Migration
+
+`infra/migrations/0003_milestone_3_credits.sql` creates:
+- `credit_accounts`
+- `credit_ledger_entries`
+- `credit_reservations`
+- `credit_refunds`
+
+This migration is additive and does not remove existing data.
+The Credits module owns all writes to these tables.
+Ledger entries are append-only through the Credits public interface.
+Reservations deduct available balance before paid work; commits, releases, and refunds are recorded as separate auditable events.
+
 ## Versioning Rules
 
 - `project_versions`, `character_versions`, and `comic_layout_versions` preserve historical snapshots.
