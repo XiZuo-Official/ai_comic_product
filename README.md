@@ -1,4 +1,4 @@
-# mange_agent
+# ai_comic_product
 
 AI comic and manga creation platform architecture scaffold.
 
