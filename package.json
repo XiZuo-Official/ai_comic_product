@@ -1,0 +1,13 @@
+{
+  "name": "mange_agent",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "check": "echo \"No checks configured yet\""
+  }
+}
