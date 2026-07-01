@@ -8,6 +8,7 @@ The database must support:
 - strong ownership by domain
 - auditable changes
 - non-destructive migrations
+- documentation-driven decision making
 
 PostgreSQL is the primary database.
 
@@ -108,6 +109,10 @@ Disallowed patterns unless explicitly approved:
 3. Backfill existing records.
 4. Move readers to the new shape.
 5. Deprecate old shape later.
+
+## Documentation Requirement
+
+Any change to database relationships, constraints, ownership, or migration strategy must be documented in `Database.md` before implementation and updated in the same pull request as the code change.
 
 ## Versioning Rules
 

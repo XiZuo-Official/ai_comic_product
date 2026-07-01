@@ -69,9 +69,24 @@ Refactor only when necessary and prefer:
 
 Avoid rewriting stable modules unless correcting a bug or vulnerability.
 
+## Open/Closed Standards
+
+- New behavior should be introduced through extension points, not by editing the core of stable modules.
+- Prefer new feature modules over expanding existing modules.
+- Prefer new adapters or strategies over branching logic inside established services.
+- Prefer events and handlers over direct cross-domain coupling.
+- If a feature needs broad edits across unrelated modules, pause and redesign the architecture before coding.
+
 ## Documentation Standards
 
 - Docs are source of truth.
 - Code must follow docs, not the other way around.
 - Update docs before changing architecture.
 - Keep docs narrow, explicit, and versioned where useful.
+
+## Documentation-Driven Development
+
+- Always read the docs before implementing a feature.
+- Treat `/docs` as authoritative over comments, issues, or prior assumptions.
+- If implementation and docs conflict, stop and ask for clarification.
+- If code changes architecture, APIs, schema, or business rules, update the corresponding docs in the same pull request.

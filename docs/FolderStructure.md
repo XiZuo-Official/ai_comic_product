@@ -4,6 +4,11 @@
 Use a monorepo with explicit app and package boundaries.
 The repository should start small but remain ready for future extraction.
 
+## Documentation Strategy
+
+The `/docs` directory is the source of truth for the project.
+Do not treat architecture notes in code comments, issues, or ad hoc messages as authoritative over `/docs`.
+
 ## Proposed Structure
 
 ```text
@@ -27,13 +32,16 @@ ai-manga-product/
     types/
     utils/
   docs/
+    PRD.md
     Architecture.md
-    API.md
-    Database.md
     FolderStructure.md
+    Database.md
+    API.md
     CodingStandards.md
     ModuleBoundaries.md
-    FutureExtension.md
+    Decisions.md
+    FutureRoadmap.md
+    CHANGELOG.md
   infra/
     migrations/
     docker/

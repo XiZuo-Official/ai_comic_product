@@ -151,6 +151,13 @@ Examples:
 
 Existing modules should not be rewritten to accommodate these features unless a stable public extension point already exists.
 
+## Open/Closed Enforcement
+
+- Stable modules must expose extension points at the boundary, not internal hooks that require invasive edits later.
+- New behavior should be attached through public interfaces, adapters, handlers, or plugins.
+- When a change request touches multiple module internals, the default assumption should be that the boundary is wrong, not that the code should be patched everywhere.
+- Prefer adding a new module over adding another responsibility to a mature module.
+
 ## Stability Policy
 
 When a module is released and tested:
@@ -158,6 +165,11 @@ When a module is released and tested:
 - preserve public contracts
 - extend through adapters or new modules
 - keep migrations additive
+
+## Architectural Approval
+
+If a request would require changing module boundaries, ask for explicit approval before implementation.
+Prefer new modules, adapters, or plugins over expanding mature modules.
 
 ## Compatibility Policy
 

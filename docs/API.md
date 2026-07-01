@@ -95,6 +95,11 @@ Optional job fields:
 - Do not change meaning of fields silently.
 - Add new endpoints rather than overloading old ones when behavior diverges.
 
+## Documentation Requirement
+
+Any API contract change must be reflected in `API.md` in the same pull request.
+If a request would require a breaking API change, stop and request architectural approval first.
+
 ## Public Contract Requirements
 
 Every endpoint group should have:

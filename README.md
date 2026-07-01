@@ -4,10 +4,15 @@ AI comic and manga creation platform architecture scaffold.
 
 ## Source of truth
 
-- [Architecture](docs/aimangaarchitecture/Architecture.md)
-- [Database](docs/aimangaarchitecture/Database.md)
-- [Folder Structure](docs/aimangaarchitecture/FolderStructure.md)
-- [API](docs/aimangaarchitecture/API.md)
-- [Coding Standards](docs/aimangaarchitecture/CodingStandards.md)
-- [Module Boundaries](docs/aimangaarchitecture/ModuleBoundaries.md)
-- [Future Extension](docs/aimangaarchitecture/FutureExtension.md)
+See the `/docs` directory:
+
+- [PRD](docs/PRD.md)
+- [Architecture](docs/Architecture.md)
+- [Folder Structure](docs/FolderStructure.md)
+- [Database](docs/Database.md)
+- [API](docs/API.md)
+- [Coding Standards](docs/CodingStandards.md)
+- [Module Boundaries](docs/ModuleBoundaries.md)
+- [Decisions](docs/Decisions.md)
+- [Future Roadmap](docs/FutureRoadmap.md)
+- [Changelog](docs/CHANGELOG.md)

@@ -1,4 +1,4 @@
-# Future Extension
+# Future Roadmap
 
 ## Purpose
 This document describes how the platform may expand in the future without violating MVP scope or architectural stability.
@@ -82,6 +82,13 @@ The safest order of expansion is:
 3. connect it through the existing orchestration layer
 4. preserve old flows
 5. add compatibility tests
+
+## Open/Closed Extension Rules
+
+- Future features must come in as additive units whenever possible.
+- Existing modules should remain untouched unless a bug fix or compatibility issue makes modification unavoidable.
+- If a future feature would force broad edits to existing modules, the feature must be redesigned around a new extension point first.
+- Additive PRs are preferred over invasive PRs, even if the additive path takes longer initially.
 
 ## Non-Goals for Now
 

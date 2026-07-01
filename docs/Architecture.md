@@ -10,6 +10,8 @@ This document is the source of truth for the product architecture. The system is
 - provider-agnostic AI
 - plugin-style expansion
 - domain-driven design
+- documentation-first development
+- architectural approval before redesign
 
 The architecture must support continuous evolution without forcing rewrites of implemented modules.
 
@@ -76,6 +78,45 @@ Future capabilities must be delivered as plugins or independent modules with exp
 ### 7. Domain-Driven Design
 Each business domain owns its own rules, data, and invariants.
 
+### 8. Open for Extension, Closed for Modification
+The system must follow the Open/Closed Principle.
+
+- Prefer extending the system rather than modifying stable modules.
+- Add new functionality through new modules, services, adapters, plugins, strategies, or event handlers.
+- Working modules should remain stable once implemented and tested.
+- If a new feature appears to require widespread modification of existing modules, treat that as an architecture problem and redesign the boundary before implementation.
+- Every pull request should minimize changes to existing files and favor additive extension points.
+
+### 9. Documentation-First Development
+The `/docs` directory is the single source of truth for the project.
+
+- Read the documentation before implementing any feature.
+- Never make architectural assumptions when documentation exists.
+- If documentation conflicts with code, stop and ask for clarification instead of guessing.
+- Any change to architecture, APIs, database schema, or business rules must be documented in the same pull request.
+- Documentation and implementation must stay synchronized.
+
+### 10. Architectural Approval Required
+Codex must not redesign the architecture on its own.
+
+If a requested feature appears to require:
+- changing existing architecture
+- modifying module boundaries
+- changing database relationships
+- introducing new core dependencies
+- changing business rules
+- breaking backward compatibility
+
+do not implement it immediately.
+
+Instead:
+1. Explain why the current architecture is insufficient.
+2. Propose one or more architectural options.
+3. Describe the trade-offs.
+4. Wait for explicit approval before making architectural changes.
+
+Major architectural decisions always require human approval.
+
 ## System Shape
 
 The product should begin as a modular monolith with strong boundaries.
@@ -123,6 +164,12 @@ Owns provider abstraction, prompt execution, job orchestration, and normalizatio
 - Modules do not reach into another module’s internal utilities.
 - Modules exchange data through public services, commands, queries, or events.
 - Shared types must be published through a stable contract layer only.
+
+## Change Policy
+
+- Extend via new code paths whenever possible.
+- Modify existing code only when needed to fix a bug, preserve compatibility, or harden a stable contract.
+- If a change would ripple across many modules, stop and redesign the extension point first.
 
 ## Compatibility Rules
 
