@@ -3,6 +3,7 @@ node_modules
 .env
 .env.local
 .next
+.pnpm-store
 dist
 coverage
 .turbo

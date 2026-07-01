@@ -24,9 +24,11 @@ PostgreSQL is the primary database.
 ## MVP Tables by Domain
 
 ### Users and Access
-- `users`
-- `workspaces`
-- `workspace_members`
+- `user_profiles`
+
+Clerk owns authentication, external identity, and session records for Version 1.0.
+The application database stores only app-owned profile fields in `user_profiles`, keyed by the authenticated external user id.
+The app must not store passwords, session tokens, or duplicate identity-provider credentials.
 
 ### Projects
 - `projects`
@@ -126,6 +128,15 @@ Any change to database relationships, constraints, ownership, or migration strat
 - `project_versions`
 
 This migration is additive and does not remove existing data.
+
+## Milestone 2 Migration
+
+`infra/migrations/0002_milestone_2_user_profiles.sql` creates:
+- `user_profiles`
+
+This migration is additive and does not remove existing data.
+`user_profiles.auth_user_id` stores the authenticated external user id from Clerk for Version 1.0.
+Only the Auth/Profile module may write this table.
 
 ## Versioning Rules
 

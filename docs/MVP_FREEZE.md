@@ -59,9 +59,6 @@ No marketing site, public reading site, marketplace, admin dashboard, analytics 
 
 Version 1.0 database scope is limited to tables required by the frozen MVP:
 
-- `users`
-- `sessions`
-- `auth_identities`
 - `user_profiles`
 - `projects`
 - `project_settings`
@@ -94,6 +91,9 @@ Version 1.0 database scope is limited to tables required by the frozen MVP:
 - `export_artifacts`
 
 Database changes outside this list require explicit approval.
+
+For Version 1.0, Clerk owns authentication/session/identity records outside the application database.
+The application owns only `user_profiles` for app-specific profile data.
 
 ## API Scope
 

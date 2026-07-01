@@ -18,6 +18,14 @@ Version changes are only required when a breaking change cannot be avoided.
 
 ## Domain-Based Route Groups
 
+### Authentication and User Profile
+- Clerk-owned routes provide Sign In, Sign Up, Sign Out, and session lifecycle behavior.
+- `GET /v1/me`
+- `PATCH /v1/me`
+
+Version 1.0 does not implement custom password, login, logout, or session APIs.
+The app-owned profile contract exposes only app-specific profile fields and the current authenticated user reference.
+
 ### Projects
 - `GET /v1/projects`
 - `POST /v1/projects`

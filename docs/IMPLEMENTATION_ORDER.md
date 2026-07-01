@@ -24,9 +24,9 @@ The sequence is optimized for minimal dependencies, low regression risk, and min
 | Task 004 | M1-T04 | Add Environment Configuration | Connects shared runtime configuration after both app shells exist. |
 | Task 005 | M1-T05 | Add Health Check | Confirms API deployability and baseline operational status. |
 | Task 006 | M2-T01 | Define Auth Domain Contracts | Starts authentication with stable public interfaces. |
-| Task 007 | M2-T02 | Add Auth Persistence | Adds auth storage only after contracts are defined. |
-| Task 008 | M2-T03 | Implement Auth APIs | Exposes auth behavior after persistence exists. |
-| Task 009 | M2-T04 | Add Protected Route Flow | Adds route protection after session APIs exist. |
+| Task 007 | M2-T02 | Add Profile Persistence | Adds app-owned profile storage only after contracts are defined. |
+| Task 008 | M2-T03 | Implement Current User/Profile Actions | Exposes current user/profile behavior after persistence exists. |
+| Task 009 | M2-T04 | Add Protected Route Flow | Confirms Clerk route protection after auth/profile contracts exist. |
 | Task 010 | M2-T05 | Implement User Profile | Builds profile on top of authenticated user identity. |
 | Task 011 | M3-T01 | Define Credits Domain Contracts | Establishes credit interfaces before paid features exist. |
 | Task 012 | M3-T02 | Add Credits Persistence | Adds credit storage after contracts are stable. |
@@ -94,6 +94,7 @@ AI, model providers, credits backend logic, and payment integration remain gated
 
 ### Auth Gate
 Tasks 006-010 must be complete before user-owned data modules depend on authenticated identity.
+Clerk owns authentication/session lifecycle for Version 1.0; the app owns only profile persistence and public auth/profile contracts.
 
 ### Credits Gate
 Tasks 011-015 must be complete before paid AI or subscription credit flows are implemented.

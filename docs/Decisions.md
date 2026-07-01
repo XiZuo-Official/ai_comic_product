@@ -34,6 +34,14 @@ This document records architectural and product decisions that need to remain st
 - Trade-offs: Clerk reduces authentication implementation risk and speeds up secure session handling, while introducing a core external dependency that must remain isolated behind auth boundaries.
 - Approval status: Approved by user on 2026-07-01.
 
+### 2026-07-01: Clerk Owns Auth, App Owns User Profile
+
+- Decision: Version 1.0 will not implement custom password, login, logout, session, or identity tables. Clerk remains the source of truth for authentication/session lifecycle, while the application owns `user_profiles` for app-specific profile fields.
+- Context: Milestone 1A already introduced Clerk authentication entry points. The older Milestone 2 plan referenced custom `users`, `sessions`, and `auth_identities` persistence, which would duplicate Clerk responsibilities and increase regression risk.
+- Alternatives considered: Build a parallel custom auth system, keep custom user/session tables synchronized with Clerk, or store only app-owned profile data keyed by Clerk's authenticated user id.
+- Trade-offs: Relying on Clerk keeps secure auth behavior provider-managed and reduces implementation risk. The app must keep Clerk usage isolated behind auth/profile boundaries so a future auth provider migration can happen through adapters rather than broad business-logic edits.
+- Approval status: Approved by user on 2026-07-01.
+
 ### 2026-07-01: Use Server Actions for Milestone 1A Project CRUD
 
 - Decision: Milestone 1A project create, rename, delete, and open behavior is implemented through Next.js Server Actions calling the Projects module public interface.

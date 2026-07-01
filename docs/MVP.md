@@ -49,15 +49,13 @@ Allow users to sign in, sign out, and access their own workspace securely.
 - Session status indicator
 
 ### Required APIs
-- `POST /v1/auth/login`
-- `POST /v1/auth/logout`
-- `GET /v1/auth/session`
+- Clerk Sign In route
+- Clerk Sign Up route
+- Clerk Sign Out route
 - `GET /v1/me`
 
 ### Database Tables
-- `users`
-- `sessions`
-- `auth_identities`
+- Clerk-managed authentication records outside the application database
 
 ### Credits Behavior
 - Authentication does not consume credits.
@@ -99,7 +97,6 @@ Allow a user to view and update their personal account information.
 - `PATCH /v1/me`
 
 ### Database Tables
-- `users`
 - `user_profiles`
 
 ### Credits Behavior
@@ -589,4 +586,3 @@ The following features are not part of Version 1.0:
 - Translation
 - Motion Comic
 - Team Collaboration
-

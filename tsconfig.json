@@ -5,6 +5,7 @@
     "moduleResolution": "Bundler",
     "baseUrl": ".",
     "paths": {
+      "@ai-comic/auth": ["packages/auth/src/index.ts"],
       "@ai-comic/config": ["packages/config/src/index.ts"],
       "@ai-comic/db": ["packages/db/src/index.ts"],
       "@ai-comic/projects": ["packages/projects/src/index.ts"],

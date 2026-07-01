@@ -92,33 +92,33 @@ AI, model providers, credits backend logic, and payment integration remain exclu
 ## Milestone 2: Authentication and User Profile
 
 ### M2-T01: Define Auth Domain Contracts
-- Description: Define public authentication and session contracts without leaking implementation details.
+- Description: Define public Clerk-backed authentication reference and app-owned profile contracts without leaking provider internals into business domains.
 - Dependencies: M1-T01.
-- Expected Files: `packages/auth/api/*`, `packages/types/*`, `docs/API.md`.
-- Acceptance Criteria: Auth request, response, and session types are documented and exported through public interfaces.
+- Expected Files: `packages/auth/api/*`, `docs/API.md`, `docs/Decisions.md`.
+- Acceptance Criteria: Current user and profile contracts are documented and exported through public interfaces.
 
-### M2-T02: Add Auth Persistence
-- Description: Add persistence definitions for `users`, `sessions`, and `auth_identities`.
+### M2-T02: Add Profile Persistence
+- Description: Add persistence definitions for app-owned `user_profiles` keyed by the authenticated external user id.
 - Dependencies: M2-T01.
 - Expected Files: `packages/auth/infrastructure/*`, `packages/db/*`, `infra/migrations/*`.
-- Acceptance Criteria: Auth persistence can create users, sessions, and identities without cross-module table access.
+- Acceptance Criteria: Profile persistence can create, read, and update user profiles without custom password/session storage.
 
-### M2-T03: Implement Auth APIs
-- Description: Implement login, logout, session lookup, and current-user API handlers.
+### M2-T03: Implement Current User/Profile Actions
+- Description: Implement current authenticated user profile lookup and profile update behavior through the Auth/Profile public interface.
 - Dependencies: M2-T02.
-- Expected Files: `apps/api/src/*`, `packages/auth/application/*`.
-- Acceptance Criteria: Auth APIs return expected statuses for valid, invalid, and expired session cases.
+- Expected Files: `apps/web/src/*`, `packages/auth/application/*`.
+- Acceptance Criteria: Current profile behavior returns expected results for authenticated, unauthenticated, valid, and invalid update cases.
 
 ### M2-T04: Add Protected Route Flow
-- Description: Add web session detection and protected route behavior.
+- Description: Confirm Clerk-backed protected route behavior and expose profile navigation from the authenticated app shell.
 - Dependencies: M2-T03.
 - Expected Files: `apps/web/src/*`, `packages/auth/api/*`.
 - Acceptance Criteria: Signed-out users are redirected from protected pages and signed-in users can access them.
 
 ### M2-T05: Implement User Profile
-- Description: Add profile persistence, API, and basic profile page.
+- Description: Add basic profile page for viewing Clerk identity context and editing app-owned profile fields.
 - Dependencies: M2-T03.
-- Expected Files: `packages/auth/*`, `apps/api/src/*`, `apps/web/src/*`, `infra/migrations/*`.
+- Expected Files: `packages/auth/*`, `apps/web/src/*`, `infra/migrations/*`.
 - Acceptance Criteria: User can view and update allowed profile fields with validation.
 
 ---

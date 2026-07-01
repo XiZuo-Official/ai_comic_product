@@ -29,6 +29,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@ai-comic/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
       '@ai-comic/config':
         specifier: workspace:*
         version: link:../../packages/config
@@ -105,6 +108,18 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+
+  packages/auth:
+    dependencies:
+      '@ai-comic/db':
+        specifier: workspace:*
+        version: link:../db
+      drizzle-orm:
+        specifier: ^0.44.7
+        version: 0.44.7(postgres@3.4.9)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
 
   packages/config:
     dependencies:

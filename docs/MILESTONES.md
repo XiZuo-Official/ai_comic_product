@@ -61,16 +61,17 @@ Medium
 ## Milestone 2: Authentication and User Profile
 
 ### Objective
-Allow a user to sign in, sign out, maintain a session, and manage basic profile information.
+Allow a Clerk-authenticated user to access protected routes and manage app-owned profile information.
 
 ### Deliverables
-- Sign In page
-- Sign Out action
-- Session handling
+- Clerk-backed Sign In page
+- Clerk-backed Sign Out action
+- Clerk-backed session handling
 - Protected routes
 - User Profile page
-- `users`, `sessions`, `auth_identities`, and `user_profiles` persistence
-- Authentication and profile APIs
+- `user_profiles` persistence
+- Auth/Profile public contracts
+- Current user and profile server actions
 
 ### Dependencies
 - Milestone 1
@@ -78,9 +79,10 @@ Allow a user to sign in, sign out, maintain a session, and manage basic profile 
 ### Acceptance Criteria
 - Signed-out users cannot access protected pages.
 - A user can sign in and sign out.
-- Current user session can be retrieved.
+- Current Clerk-authenticated user can be retrieved through the Auth/Profile boundary.
 - A user can view and update profile fields.
 - Invalid profile updates show validation errors.
+- No custom password, session, or identity persistence is introduced.
 
 ### Estimated Difficulty
 Medium

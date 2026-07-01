@@ -10,6 +10,7 @@
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@ai-comic/auth": "workspace:*",
     "@ai-comic/config": "workspace:*",
     "@ai-comic/db": "workspace:*",
     "@ai-comic/projects": "workspace:*",
