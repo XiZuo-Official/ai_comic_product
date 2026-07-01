@@ -1,11 +1,19 @@
-import type { CreditAccount, CreditLedgerEntry, CreditOperationInput, CreditRefund, CreditReservation, ReserveCreditsInput } from "../api";
-import { assertCanReserve, assertPositiveCreditAmount, assertReservationTransition, normalizeNullableText, parseReserveCreditsInput } from "../domain/credits";
+import type { CreditAccount, CreditGrantInput, CreditLedgerEntry, CreditOperationInput, CreditRefund, CreditReservation, ReserveCreditsInput } from "../api";
+import {
+  assertCanReserve,
+  assertPositiveCreditAmount,
+  assertReservationTransition,
+  normalizeNullableText,
+  parseCreditGrantInput,
+  parseReserveCreditsInput
+} from "../domain/credits";
 import {
   createReservation,
   findReservationById,
   findReservationByIdempotencyKey,
   findRefundByIdempotencyKey,
   getOrCreateCreditAccount,
+  grantCreditsToAccount,
   listCreditLedgerEntries,
   commitActiveReservation,
   refundReservationFromStatuses,
@@ -20,6 +28,18 @@ export async function listCreditLedger(ownerId: string): Promise<CreditLedgerEnt
   const account = await getOrCreateCreditAccount(ownerId);
 
   return listCreditLedgerEntries(account.id);
+}
+
+export async function grantCredits(ownerId: string, input: CreditGrantInput): Promise<CreditLedgerEntry> {
+  const parsed = parseCreditGrantInput(input);
+  const account = await getOrCreateCreditAccount(ownerId);
+
+  return grantCreditsToAccount({
+    accountId: account.id,
+    amount: parsed.amount,
+    description: normalizeNullableText(parsed.reason) ?? "Credit grant",
+    idempotencyKey: parsed.idempotencyKey.trim()
+  });
 }
 
 export async function reserveCredits(ownerId: string, input: ReserveCreditsInput): Promise<CreditReservation> {

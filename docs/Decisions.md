@@ -49,3 +49,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Implement full `/v1/projects` API endpoints immediately, or keep project CRUD out of Milestone 1A.
 - Trade-offs: Server Actions keep the first deployable shell small and preserve domain isolation through `packages/projects`; public REST project APIs remain documented for their later milestone.
 - Approval status: Approved as part of Milestone 1A implementation.
+
+### 2026-07-01: Use Provider-Agnostic Subscription Placeholder for Milestone 4
+
+- Decision: Milestone 4 implements Billing/Subscription with a provider-agnostic placeholder checkout adapter and an `mvp_creator` seed plan until a real payment provider is explicitly approved.
+- Context: The frozen MVP requires plan display, checkout entry point, webhook handling, and subscription credit grants, but no payment provider or production pricing has been selected.
+- Alternatives considered: Integrate Stripe immediately, integrate another billing provider immediately, or delay Milestone 4 until provider selection.
+- Trade-offs: The placeholder adapter keeps module contracts, persistence, UI, webhook idempotency, and credit grant behavior testable without locking the architecture to a provider. A real provider can later be added as a Billing adapter without redesigning Subscription or Credits.
+- Approval status: Approved by user on 2026-07-01 as part of the Milestone 4 plan.

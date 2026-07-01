@@ -51,3 +51,9 @@ export type CreditOperationInput = {
   idempotencyKey?: string | null;
   reason?: string | null;
 };
+
+export type CreditGrantInput = {
+  amount: number;
+  idempotencyKey: string;
+  reason?: string | null;
+};

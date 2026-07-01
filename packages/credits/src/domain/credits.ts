@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import type { CreditReservationStatus, ReserveCreditsInput } from "../api";
+import type { CreditGrantInput, CreditReservationStatus, ReserveCreditsInput } from "../api";
 
 export const reserveCreditsSchema = z.object({
   amount: z.coerce.number().int().positive("Credit amount must be greater than zero"),
@@ -8,8 +8,18 @@ export const reserveCreditsSchema = z.object({
   reason: z.string().trim().max(120).optional().nullable()
 });
 
+export const grantCreditsSchema = z.object({
+  amount: z.coerce.number().int().positive("Credit amount must be greater than zero"),
+  idempotencyKey: z.string().trim().min(1).max(160),
+  reason: z.string().trim().max(180).optional().nullable()
+});
+
 export function parseReserveCreditsInput(input: ReserveCreditsInput) {
   return reserveCreditsSchema.parse(input);
+}
+
+export function parseCreditGrantInput(input: CreditGrantInput) {
+  return grantCreditsSchema.parse(input);
 }
 
 export function assertPositiveCreditAmount(amount: number): void {

@@ -1,7 +1,14 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { assertCanReserve, assertPositiveCreditAmount, assertReservationTransition, normalizeNullableText, parseReserveCreditsInput } from "../domain/credits";
+import {
+  assertCanReserve,
+  assertPositiveCreditAmount,
+  assertReservationTransition,
+  normalizeNullableText,
+  parseCreditGrantInput,
+  parseReserveCreditsInput
+} from "../domain/credits";
 
 test("parseReserveCreditsInput accepts positive integer amounts", () => {
   const parsed = parseReserveCreditsInput({
@@ -17,6 +24,15 @@ test("parseReserveCreditsInput accepts positive integer amounts", () => {
 test("parseReserveCreditsInput rejects invalid amounts", () => {
   assert.throws(() => parseReserveCreditsInput({ amount: 0 }), /greater than zero/);
   assert.throws(() => parseReserveCreditsInput({ amount: 1.5 }), /Expected integer/);
+});
+
+test("parseCreditGrantInput requires positive amounts and idempotency", () => {
+  const input = parseCreditGrantInput({ amount: 10, idempotencyKey: " grant-1 " });
+
+  assert.equal(input.amount, 10);
+  assert.equal(input.idempotencyKey, "grant-1");
+  assert.throws(() => parseCreditGrantInput({ amount: 0, idempotencyKey: "grant-2" }), /Credit amount must be greater than zero/);
+  assert.throws(() => parseCreditGrantInput({ amount: 10, idempotencyKey: "" }), /String must contain at least 1 character/);
 });
 
 test("assertCanReserve prevents negative balances", () => {

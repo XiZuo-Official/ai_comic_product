@@ -125,6 +125,9 @@ Medium-High
 
 ## Milestone 4: Subscription
 
+### Status
+Completed on 2026-07-01.
+
 ### Objective
 Allow users to view subscription state and receive subscription-based credit grants.
 

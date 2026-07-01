@@ -2,6 +2,7 @@ export type {
   CreditAccount,
   CreditLedgerEntry,
   CreditLedgerEntryType,
+  CreditGrantInput,
   CreditOperationInput,
   CreditRefund,
   CreditReservation,
@@ -10,10 +11,11 @@ export type {
 } from "./api";
 export {
   commitCreditReservation,
+  grantCredits,
   getCreditBalance,
   listCreditLedger,
   refundCredits,
   releaseCreditReservation,
   reserveCredits
 } from "./application/credits";
-export { reserveCreditsSchema } from "./domain/credits";
+export { grantCreditsSchema, reserveCreditsSchema } from "./domain/credits";

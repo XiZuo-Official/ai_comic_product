@@ -464,3 +464,53 @@ export async function createRefund(input: {
 
   return toCreditRefund(existing);
 }
+
+export async function grantCreditsToAccount(input: {
+  accountId: string;
+  amount: number;
+  description: string | null;
+  idempotencyKey: string;
+}): Promise<CreditLedgerEntry> {
+  const result = await db.transaction(async (tx) => {
+    await tx.execute(sql`SELECT id FROM credit_accounts WHERE id = ${input.accountId} FOR UPDATE`);
+
+    const [existingEntry] = await tx
+      .select()
+      .from(creditLedgerEntries)
+      .where(and(eq(creditLedgerEntries.accountId, input.accountId), eq(creditLedgerEntries.idempotencyKey, input.idempotencyKey)))
+      .limit(1);
+
+    if (existingEntry) {
+      return existingEntry;
+    }
+
+    const [account] = await tx
+      .update(creditAccounts)
+      .set({
+        balance: sql`${creditAccounts.balance} + ${input.amount}`,
+        updatedAt: new Date()
+      })
+      .where(eq(creditAccounts.id, input.accountId))
+      .returning();
+
+    if (!account) {
+      throw new Error("Credit account not found");
+    }
+
+    const [entry] = await tx
+      .insert(creditLedgerEntries)
+      .values({
+        accountId: input.accountId,
+        amountDelta: input.amount,
+        balanceAfter: account.balance,
+        description: input.description,
+        entryType: "adjustment",
+        idempotencyKey: input.idempotencyKey
+      })
+      .returning();
+
+    return entry;
+  });
+
+  return toCreditLedgerEntry(result);
+}

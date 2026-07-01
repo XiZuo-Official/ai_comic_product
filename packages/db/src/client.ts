@@ -4,6 +4,7 @@ import postgres from "postgres";
 
 import * as creditSchema from "./schema/credits";
 import * as projectSchema from "./schema/projects";
+import * as subscriptionSchema from "./schema/subscriptions";
 import * as userProfileSchema from "./schema/user-profiles";
 
 const globalForDb = globalThis as unknown as {
@@ -27,6 +28,7 @@ export const db = drizzle(sql, {
   schema: {
     ...creditSchema,
     ...projectSchema,
+    ...subscriptionSchema,
     ...userProfileSchema
   }
 });

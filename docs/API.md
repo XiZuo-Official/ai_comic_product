@@ -71,8 +71,14 @@ Insufficient-credit reservation attempts return an error and do not create a neg
 
 ### Subscription
 - `GET /v1/subscription`
+- `GET /v1/subscription/plans`
 - `POST /v1/subscription/checkout`
 - `POST /v1/subscription/webhook`
+
+Milestone 4 implements these endpoints through the Billing module public interface.
+The checkout endpoint returns a provider-agnostic checkout session using the MVP placeholder adapter until a payment provider is approved.
+Webhook requests accept provider event data and are processed idempotently by `provider` and `providerEventId`.
+Subscription credit grants are recorded through the Credits public interface.
 
 ### Export
 - `POST /v1/exports`

@@ -151,6 +151,19 @@ The Credits module owns all writes to these tables.
 Ledger entries are append-only through the Credits public interface.
 Reservations deduct available balance before paid work; commits, releases, and refunds are recorded as separate auditable events.
 
+## Milestone 4 Migration
+
+`infra/migrations/0004_milestone_4_subscription.sql` creates:
+- `plans`
+- `subscriptions`
+- `subscription_events`
+
+This migration is additive and does not remove existing data.
+The Subscription/Billing module owns all writes to these tables.
+`subscription_events` are idempotent by provider event id.
+Subscription credit grants must be applied through the Credits public interface and recorded in the credit ledger.
+The migration seeds the placeholder `mvp_creator` plan so the MVP can display and test subscription behavior before a real payment provider is approved.
+
 ## Versioning Rules
 
 - `project_versions`, `character_versions`, and `comic_layout_versions` preserve historical snapshots.

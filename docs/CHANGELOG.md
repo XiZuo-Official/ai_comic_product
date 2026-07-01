@@ -17,6 +17,10 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-01
 
+- Change: Implemented Milestone 4 Subscription and marked it complete.
+- Why it changed: Billing now has provider-agnostic subscription contracts, persistence, idempotent webhook handling, checkout entry points, subscription UI, and subscription credit grants through Credits.
+- Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_4_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Implemented Milestone 3 Credits Ledger and marked it complete.
 - Why it changed: Credits now have domain contracts, persistence, reservation lifecycle behavior, authenticated APIs, a user-facing balance/ledger view, and focused domain tests.
 - Documents updated: `Database.md`, `API.md`, `MILESTONES.md`, `MILESTONE_3_COMPLETION_REPORT.md`, `CHANGELOG.md`.
