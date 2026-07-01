@@ -1,3 +1,14 @@
 packages:
   - "apps/*"
   - "packages/*"
+
+onlyBuiltDependencies:
+  - "@clerk/shared"
+  - "esbuild"
+  - "sharp"
+  - "unrs-resolver"
+allowBuilds:
+  '@clerk/shared': true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true

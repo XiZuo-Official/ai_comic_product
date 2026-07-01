@@ -2,12 +2,23 @@
   "name": "ai_comic_product",
   "private": true,
   "version": "0.1.0",
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@11.7.0",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "check": "echo \"No checks configured yet\""
+    "build": "turbo build",
+    "check": "turbo check",
+    "dev": "turbo dev",
+    "dev:api": "pnpm --filter @ai-comic/api dev",
+    "dev:web": "pnpm --filter @ai-comic/web dev",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "turbo": "^2.6.1",
+    "typescript": "^5.9.3"
   }
 }

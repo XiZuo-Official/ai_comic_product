@@ -88,7 +88,9 @@ The sequence is optimized for minimal dependencies, low regression risk, and min
 ## Dependency Gates
 
 ### Foundation Gate
-Tasks 001-005 must be complete before application feature work begins.
+Tasks 001-005 are expanded by the approved Milestone 1A decision.
+Milestone 1A may include Clerk authentication entry points, project CRUD, project layout placeholders, fake credit display, and subscription placeholder before the original later milestone ordering.
+AI, model providers, credits backend logic, and payment integration remain gated until their original milestones.
 
 ### Auth Gate
 Tasks 006-010 must be complete before user-owned data modules depend on authenticated identity.
@@ -114,4 +116,3 @@ Tasks 062-066 must be complete before Version 1.0 can be considered release-read
 - Subscription is scheduled before projects because subscription credit grants depend only on authentication and credits, not project data.
 - Projects are scheduled before assets, characters, Idea Chat, Comic Studio, and Export because those modules are project-scoped.
 - Export is scheduled after Comic Studio because Version 1.0 export depends on saved comic content.
-

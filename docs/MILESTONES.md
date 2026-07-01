@@ -18,7 +18,7 @@ Each milestone should take approximately 2-5 days, be independently testable, an
 ## Milestone 1: Project Foundation
 
 ### Objective
-Establish the application foundation, development workflow, environment configuration, and deployable shell.
+Establish the application foundation, development workflow, environment configuration, deployable shell, Clerk authentication entry points, project CRUD, and project navigation placeholders.
 
 ### Deliverables
 - Web app shell
@@ -28,6 +28,14 @@ Establish the application foundation, development workflow, environment configur
 - Health check endpoint
 - Basic CI/check command
 - Deployment-ready empty application
+- Clerk Sign In, Sign Up, and Sign Out surfaces
+- Home page with Single Image Mode and Projects entry points
+- Project List with create, rename, delete, and open actions
+- PostgreSQL-backed `projects` persistence
+- Project layout sidebar with placeholder pages for Idea Chat, Characters, Asset Library, Comic Studio, and Export
+- Global sidebar, top navigation, responsive layout, theme support, loading states, empty states, and error boundary
+- Fake credit balance display in top navigation
+- Subscription placeholder page
 
 ### Dependencies
 - Frozen MVP docs
@@ -37,7 +45,13 @@ Establish the application foundation, development workflow, environment configur
 - App can run locally.
 - API health check returns success.
 - Shared checks can run from the repo root.
-- Deployment can publish an empty authenticated-product shell.
+- Deployment can publish an authenticated-product shell.
+- Clerk Sign In, Sign Up, and Sign Out routes render correctly.
+- Project CRUD works against PostgreSQL.
+- Project subpages render milestone placeholders.
+- Fake credit balance is visible in top navigation.
+- Subscription page renders a placeholder without payment integration.
+- No AI, model provider, credits backend, or payment logic is implemented.
 
 ### Estimated Difficulty
 Medium
@@ -401,4 +415,3 @@ Stabilize the full frozen MVP for public release without adding new product scop
 
 ### Estimated Difficulty
 Medium
-

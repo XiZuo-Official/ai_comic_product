@@ -1,0 +1,14 @@
+{
+  "name": "@ai-comic/db",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@ai-comic/config": "workspace:*",
+    "drizzle-orm": "^0.44.7",
+    "postgres": "^3.4.7"
+  }
+}

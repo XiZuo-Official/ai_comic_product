@@ -33,6 +33,10 @@ PostgreSQL is the primary database.
 - `project_settings`
 - `project_versions`
 
+Milestone 1A implements the Projects tables first.
+Project records are scoped by the authenticated Clerk user id stored as `projects.owner_id`.
+Project deletion is implemented as a soft delete through `projects.deleted_at`.
+
 ### Idea Chat
 - `idea_threads`
 - `idea_messages`
@@ -113,6 +117,15 @@ Disallowed patterns unless explicitly approved:
 ## Documentation Requirement
 
 Any change to database relationships, constraints, ownership, or migration strategy must be documented in `Database.md` before implementation and updated in the same pull request as the code change.
+
+## Milestone 1A Migration
+
+`infra/migrations/0001_milestone_1a_projects.sql` creates:
+- `projects`
+- `project_settings`
+- `project_versions`
+
+This migration is additive and does not remove existing data.
 
 ## Versioning Rules
 

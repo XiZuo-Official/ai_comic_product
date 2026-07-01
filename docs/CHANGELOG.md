@@ -14,3 +14,9 @@ Keep entries short, dated, and additive.
 
 ## Note
 Implementation changes that affect architecture, APIs, schema, or business rules must be accompanied by matching documentation updates.
+
+## 2026-07-01
+
+- Change: Added approved Milestone 1A foundation scope and implementation artifacts.
+- Why it changed: The first implementation pass was explicitly expanded to include Clerk auth entry points, project CRUD, global layout, project placeholders, fake credit display, and subscription placeholder.
+- Documents updated: `Decisions.md`, `MILESTONES.md`, `TASK_BREAKDOWN.md`, `IMPLEMENTATION_ORDER.md`, `MVP_FREEZE.md`, `Database.md`.

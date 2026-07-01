@@ -39,6 +39,7 @@ Version 1.0 includes only:
 Version 1.0 includes only these application pages or views:
 
 - Sign In
+- Sign Up
 - Sign Out
 - User Profile
 - Dashboard / Project List
@@ -232,4 +233,3 @@ Before implementation, the change must:
 2. Explain why the frozen MVP is insufficient.
 3. Describe trade-offs.
 4. Receive explicit approval.
-

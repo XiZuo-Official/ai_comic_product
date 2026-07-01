@@ -1,0 +1,17 @@
+{
+  "name": "@ai-comic/api",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "check": "pnpm typecheck",
+    "dev": "tsx src/server.ts",
+    "lint": "tsc --project tsconfig.json --noEmit",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

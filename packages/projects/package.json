@@ -1,0 +1,14 @@
+{
+  "name": "@ai-comic/projects",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@ai-comic/db": "workspace:*",
+    "drizzle-orm": "^0.44.7",
+    "zod": "^3.25.76"
+  }
+}

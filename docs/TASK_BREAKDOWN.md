@@ -17,6 +17,10 @@ Each task should take approximately 1-3 hours and should be small enough to beco
 
 ## Milestone 1: Project Foundation
 
+Milestone 1 is expanded by the approved Milestone 1A decision recorded in `Decisions.md`.
+The expanded scope may include Clerk authentication entry points, project CRUD, project layout placeholders, fake credit display, and subscription placeholder UI.
+AI, model providers, credits backend logic, and payment integration remain excluded.
+
 ### M1-T01: Configure Monorepo Scripts
 - Description: Add root-level package scripts for checking, linting placeholder flow, and local development entry points.
 - Dependencies: Existing scaffold.
@@ -46,6 +50,42 @@ Each task should take approximately 1-3 hours and should be small enough to beco
 - Dependencies: M1-T03.
 - Expected Files: `apps/api/src/*`, `apps/web/src/*`.
 - Acceptance Criteria: Health endpoint returns success and can be used by deployment checks.
+
+### M1A-T06: Add Clerk Authentication Entry Points
+- Description: Add Clerk Sign In, Sign Up, and Sign Out routes and wire session-aware layout behavior.
+- Dependencies: M1-T02, M1-T04.
+- Expected Files: `apps/web/src/*`, `.env.example`, `docs/Decisions.md`.
+- Acceptance Criteria: Sign In, Sign Up, and Sign Out surfaces render without custom auth logic.
+
+### M1A-T07: Add Global Layout Shell
+- Description: Add sidebar, top navigation, responsive layout, theme support, loading states, empty states, error boundary, and fake credit balance display.
+- Dependencies: M1A-T06.
+- Expected Files: `apps/web/src/*`, `packages/ui/*`.
+- Acceptance Criteria: Authenticated app surfaces share a responsive shell and show `120 Credits` without backend credit logic.
+
+### M1A-T08: Add Home Entry Points
+- Description: Add Home page with only Single Image Mode and Projects entry points.
+- Dependencies: M1A-T07.
+- Expected Files: `apps/web/src/*`.
+- Acceptance Criteria: Home page contains exactly the two approved entry points.
+
+### M1A-T09: Add Project Persistence and CRUD
+- Description: Add PostgreSQL-backed project create, rename, delete, list, and open behavior.
+- Dependencies: M1A-T06.
+- Expected Files: `packages/projects/*`, `packages/db/*`, `infra/migrations/*`, `apps/web/src/*`.
+- Acceptance Criteria: Project CRUD works for the authenticated user and no non-project business logic is introduced.
+
+### M1A-T10: Add Project Layout Placeholders
+- Description: Add project sidebar navigation and placeholder pages for Idea Chat, Characters, Asset Library, Comic Studio, and Export.
+- Dependencies: M1A-T09.
+- Expected Files: `apps/web/src/*`.
+- Acceptance Criteria: Each project module page renders `Coming in Milestone X` and does not implement feature logic.
+
+### M1A-T11: Add Subscription Placeholder
+- Description: Add subscription placeholder page without payment integration.
+- Dependencies: M1A-T07.
+- Expected Files: `apps/web/src/*`.
+- Acceptance Criteria: Subscription page renders a placeholder and does not call payment APIs.
 
 ---
 
@@ -460,4 +500,3 @@ Each task should take approximately 1-3 hours and should be small enough to beco
 - Dependencies: M13-T04.
 - Expected Files: `docs/CHANGELOG.md`, deployment config files, root scripts.
 - Acceptance Criteria: Release candidate builds successfully and contains no out-of-scope features.
-
