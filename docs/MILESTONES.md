@@ -254,6 +254,9 @@ High
 
 ## Milestone 8: Single Image Mode
 
+### Status
+Completed on 2026-07-02.
+
 ### Objective
 Allow a user to generate one image from a prompt and save the result as an asset.
 

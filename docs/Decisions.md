@@ -81,3 +81,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Integrate OpenAI or another provider immediately, defer credit integration until Single Image Mode, or allow clients to submit arbitrary credit costs.
 - Trade-offs: The placeholder adapter proves lifecycle, persistence, provider boundaries, and credit behavior without coupling the product to a vendor. Fixed estimates are intentionally conservative MVP infrastructure rules and can be extended through AI module contracts later.
 - Approval status: Approved by user on 2026-07-02 as part of Milestone 7 implementation approval.
+
+### 2026-07-02: Implement Single Image Mode Through AI and Assets Public Interfaces
+
+- Decision: Milestone 8 Single Image Mode creates provider-agnostic `image_generation` jobs through the AI module, saves generated output through the Assets module, and requires a target project because assets are project-scoped.
+- Context: The frozen MVP requires Single Image Mode to generate one image, show credit cost, save successful output to Asset Library, and support download. No real image provider has been selected or approved.
+- Alternatives considered: Integrate a real image provider immediately, store generated images outside projects, or let the UI call AI and Asset internals directly.
+- Trade-offs: Requiring a project keeps generated output aligned with existing Asset Library ownership. Using the placeholder provider and deterministic placeholder PNG keeps the workflow testable without vendor coupling, while real provider integration can later be added behind the AI provider adapter.
+- Approval status: Approved by user on 2026-07-02 as part of Milestone 8 implementation approval.

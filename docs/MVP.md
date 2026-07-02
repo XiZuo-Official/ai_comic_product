@@ -224,16 +224,18 @@ Allow a user to generate a single image from a prompt or reference inputs.
 
 ### User Flow
 1. User opens Single Image Mode.
-2. User enters prompt and optional settings.
-3. App estimates credit cost.
-4. User starts generation.
-5. System reserves credits.
-6. System generates the image.
-7. Result is shown and saved as an asset.
-8. User can regenerate or download the image.
+2. User chooses a target project.
+3. User enters prompt and optional settings.
+4. App estimates credit cost.
+5. User starts generation.
+6. System reserves credits.
+7. System generates the image.
+8. Result is shown and saved as an asset.
+9. User can regenerate or download the image.
 
 ### Main UI
 - Prompt input
+- Target project selector
 - Style or quality options
 - Generate button
 - Progress state
@@ -241,6 +243,7 @@ Allow a user to generate a single image from a prompt or reference inputs.
 - Download and save actions
 
 ### Required APIs
+- `POST /v1/single-image/jobs`
 - `POST /v1/ai/jobs`
 - `GET /v1/ai/jobs/:jobId`
 - `GET /v1/ai/jobs/:jobId/events`
@@ -264,7 +267,8 @@ Allow a user to generate a single image from a prompt or reference inputs.
 
 Milestone 7 establishes the provider-agnostic AI job and credit lifecycle foundation only.
 The initial infrastructure estimate is 5 credits for text-generation jobs and 20 credits for image-generation jobs.
-Real image generation and asset saving begin in later milestones.
+Milestone 8 adds Single Image Mode using the provider-agnostic AI job foundation, the placeholder provider adapter, and a deterministic placeholder image artifact saved through the Asset Library.
+Real provider image generation remains excluded until explicitly approved.
 
 ### Edge Cases
 - Invalid prompt

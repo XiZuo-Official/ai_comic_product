@@ -13,9 +13,14 @@ export type {
   AiProviderGenerateInput,
   AiProviderGenerateResult,
   AiPromptTemplateStatus,
-  CreateAiJobInput
+  CreateAiJobInput,
+  GenerateSingleImageInput,
+  SingleImageAspectRatio,
+  SingleImageResult,
+  SingleImageStyle
 } from "./api";
 export { createAiJob, getAiJob, listAiJobEvents } from "./application/ai-jobs";
+export { generateSingleImage } from "./application/single-image";
 export {
   aiJobStatuses,
   aiJobTypes,
@@ -24,3 +29,9 @@ export {
   defaultPromptTemplateForType,
   estimateAiJobCredits
 } from "./domain/ai-job";
+export {
+  generateSingleImageSchema,
+  parseGenerateSingleImageInput,
+  singleImageAspectRatios,
+  singleImageStyles
+} from "./domain/single-image";

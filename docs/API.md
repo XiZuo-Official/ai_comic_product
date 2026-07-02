@@ -89,6 +89,21 @@ Prompt templates are versioned by `promptTemplateKey` and `promptTemplateVersion
 Provider calls are logged internally for debugging and are not exposed to feature modules.
 Milestone 7 does not implement real model providers or feature-specific generation workflows.
 
+### Single Image Mode
+- `POST /v1/single-image/jobs`
+
+Milestone 8 implements this endpoint through the AI module public interface.
+Requests accept a project id, prompt, optional MVP generation settings, and optional idempotency key.
+The endpoint creates a provider-agnostic `image_generation` AI job, reserves and commits credits through the AI/Credits lifecycle, saves the generated output through the Assets module public interface, and returns the resulting `jobId`, `assetId`, preview URL, and download URL.
+The MVP settings are limited to:
+- `style`: `manga`, `comic`, `storybook`
+- `aspectRatio`: `1:1`, `2:3`, `3:2`
+
+The implementation intentionally uses the Milestone 7 placeholder provider and deterministic placeholder image artifact until a real image provider is explicitly approved.
+Clients must not send provider names, model ids, or provider-specific settings.
+Generated outputs are saved as project-scoped assets, so a target project is required.
+Asset URLs are resolved through the Storage module; public URLs are not persisted.
+
 ### Credits
 - `GET /v1/credits/balance`
 - `GET /v1/credits/ledger`

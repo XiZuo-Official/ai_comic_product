@@ -12,6 +12,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@ai-comic/assets": "workspace:*",
     "@ai-comic/credits": "workspace:*",
     "@ai-comic/db": "workspace:*",
     "drizzle-orm": "^0.44.7",

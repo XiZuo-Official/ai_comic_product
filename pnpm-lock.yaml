@@ -126,6 +126,9 @@ importers:
 
   packages/ai:
     dependencies:
+      '@ai-comic/assets':
+        specifier: workspace:*
+        version: link:../assets
       '@ai-comic/credits':
         specifier: workspace:*
         version: link:../credits

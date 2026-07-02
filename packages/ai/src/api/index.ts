@@ -101,3 +101,23 @@ export type AiProviderAdapter = {
   generate(input: AiProviderGenerateInput): Promise<AiProviderGenerateResult>;
   providerId: string;
 };
+
+export type SingleImageAspectRatio = "1:1" | "2:3" | "3:2";
+
+export type SingleImageStyle = "manga" | "comic" | "storybook";
+
+export type GenerateSingleImageInput = {
+  aspectRatio?: SingleImageAspectRatio | null;
+  idempotencyKey?: string | null;
+  projectId: string;
+  prompt: string;
+  style?: SingleImageStyle | null;
+};
+
+export type SingleImageResult = {
+  assetId: string;
+  assetPreviewUrl: string;
+  downloadUrl: string;
+  jobId: string;
+  status: AiJobStatus;
+};
