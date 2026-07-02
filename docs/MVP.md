@@ -453,7 +453,14 @@ Store and manage images and related files used by the project.
 ### Database Tables
 - `assets`
 - `asset_variants`
+- `tags`
 - `asset_tags`
+
+Asset records persist only `storage_provider` and `storage_key`.
+Public URLs must be resolved through the Storage module.
+Tags are normalized through `tags` and linked through `asset_tags`.
+Asset-specific properties use flexible metadata storage where appropriate.
+Asset status is explicit with initial states for uploading, ready, failed, archived, and deleted.
 
 ### Credits Behavior
 - Uploading a user file does not consume credits.

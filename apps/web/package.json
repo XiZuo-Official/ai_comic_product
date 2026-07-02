@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@ai-comic/auth": "workspace:*",
+    "@ai-comic/assets": "workspace:*",
     "@ai-comic/billing": "workspace:*",
     "@ai-comic/config": "workspace:*",
     "@ai-comic/credits": "workspace:*",
     "@ai-comic/db": "workspace:*",
     "@ai-comic/projects": "workspace:*",
+    "@ai-comic/storage": "workspace:*",
     "@ai-comic/ui": "workspace:*",
     "@clerk/nextjs": "^6.34.4",
     "class-variance-authority": "^0.7.1",

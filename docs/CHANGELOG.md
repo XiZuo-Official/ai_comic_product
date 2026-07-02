@@ -17,6 +17,10 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-02
 
+- Change: Implemented Milestone 6 Asset Library and marked it complete.
+- Why it changed: Assets now have isolated module contracts, storage-provider-independent references, normalized tags, explicit lifecycle status, upload and metadata APIs, project-scoped UI, and focused domain tests.
+- Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MVP.md`, `MILESTONES.md`, `MILESTONE_6_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Implemented Milestone 5 Projects and marked it complete.
 - Why it changed: Projects now have formal contracts, modular package boundaries, strict MVP metadata updates, documented APIs, additive metadata persistence, and focused domain tests.
 - Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MVP.md`, `MILESTONES.md`, `MILESTONE_5_COMPLETION_REPORT.md`, `CHANGELOG.md`.

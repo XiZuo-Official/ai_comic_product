@@ -189,6 +189,8 @@ Medium
 
 ## Milestone 6: Asset Library
 
+Status: Completed on 2026-07-02.
+
 ### Objective
 Allow users to upload, view, tag, and reuse project assets.
 
@@ -199,6 +201,7 @@ Allow users to upload, view, tag, and reuse project assets.
 - Asset grid or list
 - Asset detail panel
 - `assets`, `asset_variants`, and `asset_tags` persistence
+- normalized `tags` persistence
 - Asset APIs
 
 ### Dependencies

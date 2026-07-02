@@ -51,6 +51,24 @@ Simple metadata updates do not create project version records.
 - `GET /v1/projects/:projectId/assets`
 - `POST /v1/assets/upload-url`
 - `POST /v1/assets`
+- `GET /v1/assets/:assetId`
+- `PATCH /v1/assets/:assetId`
+- `DELETE /v1/assets/:assetId`
+
+Milestone 6 implements these endpoints through the Assets module public interface.
+Assets are scoped to projects and authenticated owners.
+Asset records persist `storage_provider` and `storage_key` only; public URLs are resolved through the Storage module and are not persisted.
+Asset statuses use the MVP lifecycle values `uploading`, `ready`, `failed`, `archived`, and `deleted`.
+Tags are normalized through the shared `tags` table and `asset_tags` junction table.
+Asset metadata uses flexible JSON object storage for asset-specific properties.
+Uploading user files does not consume credits.
+
+### Storage
+- `GET /v1/storage/local/:storageKey`
+
+Storage URLs are resolved by the Storage module and returned to callers as asset preview or access URLs.
+Clients must not construct storage URLs directly.
+Asset persistence must never store these public URLs.
 
 ### Comic Studio
 - `GET /v1/projects/:projectId/comic-studio`

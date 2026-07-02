@@ -52,6 +52,7 @@ Project deletion is implemented as a soft delete through `projects.deleted_at`.
 ### Assets
 - `assets`
 - `asset_variants`
+- `tags`
 - `asset_tags`
 
 ### Comic Studio
@@ -173,6 +174,21 @@ This migration is additive and does not remove existing data.
 The Projects module owns project metadata writes.
 MVP project metadata is limited to `name` and `description`.
 Project versions remain available for meaningful project state changes, but simple metadata updates such as `name` or `description` edits do not automatically create project version records.
+
+## Milestone 6 Migration
+
+`infra/migrations/0006_milestone_6_assets.sql` creates:
+- `assets`
+- `asset_variants`
+- `tags`
+- `asset_tags`
+
+This migration is additive and does not remove existing data.
+The Assets module owns asset records, asset variants, tag assignments, and asset metadata writes.
+The reusable `tags` table normalizes tag names per owner; `asset_tags` is the junction table between assets and tags.
+Asset records persist only `storage_provider` and `storage_key`; public URLs must be resolved through the Storage module and must not be stored in asset tables.
+Asset-specific properties use `metadata` JSONB so the schema does not become image-only.
+Asset lifecycle is explicit through `status`, initially `uploading`, `ready`, `failed`, `archived`, and `deleted`.
 
 ## Versioning Rules
 

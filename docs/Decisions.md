@@ -65,3 +65,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Allow a generic metadata object, allow arbitrary PATCH fields, or create project versions for every metadata edit.
 - Trade-offs: Limiting metadata keeps the MVP stable and avoids accidental future scope. Preserving the versioning mechanism without recording routine metadata edits keeps the audit trail useful for future meaningful state snapshots.
 - Approval status: Approved by user on 2026-07-02.
+
+### 2026-07-02: Normalize Asset Tags and Keep Storage Provider-Agnostic
+
+- Decision: Milestone 6 assets use a reusable `tags` table with an `asset_tags` junction table, persist only `storage_provider` and `storage_key`, expose explicit asset status values, and store flexible asset-specific properties in JSON metadata.
+- Context: The Asset Library needs upload, tagging, metadata, and future reuse without hard-coding image-only assumptions or provider-specific public URLs.
+- Alternatives considered: Store duplicated tag names directly on assets, persist public URLs, model only image dimensions and image-specific fields, or defer statuses until later.
+- Trade-offs: Normalized tags and storage indirection add a little more schema and service code now, but protect future provider swaps, non-image assets, and cross-feature asset reuse. Flexible metadata avoids premature schema churn while preserving explicit columns for core invariants.
+- Approval status: Approved by user on 2026-07-02 before Milestone 6 implementation.

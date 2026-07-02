@@ -73,7 +73,7 @@ Authentication and authorization contracts.
 Provider abstraction, prompt orchestration, job execution interfaces, normalization.
 
 ### `packages/assets`
-Asset domain logic and asset metadata contracts.
+Asset domain logic, upload lifecycle, metadata contracts, normalized tag assignment, and asset persistence access.
 
 ### `packages/billing`
 Subscription and plan rules.
@@ -97,7 +97,7 @@ Idea chat and context management.
 Project lifecycle and project metadata.
 
 ### `packages/storage`
-Storage adapters for uploads and artifact access.
+Storage public interface, upload target creation, storage-key resolution, and provider adapters.
 
 ### `packages/ui`
 Reusable UI components only. No domain logic.
