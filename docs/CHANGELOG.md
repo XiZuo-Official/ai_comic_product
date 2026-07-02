@@ -17,6 +17,10 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-02
 
+- Change: Implemented Milestone 10 Characters and marked it complete.
+- Why it changed: Users can now create, edit, view, delete, and version project-scoped characters, plus link existing Asset Library items as character references through an isolated Characters module.
+- Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_10_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Implemented Milestone 9 Idea Chat and marked it complete.
 - Why it changed: Users can now create project-scoped idea threads, send AI-assisted text prompts, preserve conversation history, store context snapshots, and consume credits through the provider-agnostic AI Job Foundation.
 - Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_9_COMPLETION_REPORT.md`, `CHANGELOG.md`.

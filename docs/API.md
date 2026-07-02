@@ -53,7 +53,18 @@ Failed AI responses are stored as failed assistant messages and credit release b
 ### Characters
 - `GET /v1/projects/:projectId/characters`
 - `POST /v1/projects/:projectId/characters`
+- `GET /v1/characters/:characterId`
 - `PATCH /v1/characters/:characterId`
+- `DELETE /v1/characters/:characterId`
+
+Milestone 10 implements these endpoints through the Characters module public interface.
+Characters are scoped to authenticated owners and projects.
+Character records support MVP fields `name`, `description`, flexible `metadata`, and `referenceAssetIds`.
+Duplicate character names are rejected within the same active project using normalized-name validation.
+Character updates create version snapshots for relevant changes.
+Deleting a character is a soft delete so history and future references remain auditable.
+Reference assets are validated through the Assets module public interface; Character APIs store only asset ids and do not read Asset internals.
+Creating, editing, deleting, or linking character metadata does not consume credits.
 
 ### Assets
 - `GET /v1/projects/:projectId/assets`

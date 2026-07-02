@@ -322,6 +322,9 @@ Medium-High
 
 ## Milestone 10: Characters
 
+### Status
+Completed on 2026-07-02.
+
 ### Objective
 Allow a user to create and manage project characters.
 

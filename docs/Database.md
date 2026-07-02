@@ -224,6 +224,21 @@ Idea messages belong to idea threads and preserve user and assistant conversatio
 Idea context snapshots capture the project context and recent conversation used for each AI-assisted response.
 AI job references are stored as ids without making AI provider internals part of the Ideas module contract.
 
+## Milestone 10 Migration
+
+`infra/migrations/0009_milestone_10_characters.sql` creates:
+- `characters`
+- `character_versions`
+- `character_assets`
+
+This migration is additive and does not remove existing data.
+The Characters module owns all writes to these tables.
+Characters are scoped by authenticated owner and project.
+Character duplicate handling uses normalized names within active project records.
+Character deletion is soft deletion through `characters.deleted_at` and `characters.status`.
+Character versions store JSON snapshots for create, update, delete, and reference changes.
+`character_assets` stores reference asset ids without duplicating asset metadata; asset validity is checked through the Assets public interface.
+
 ## Versioning Rules
 
 - `project_versions`, `character_versions`, and `comic_layout_versions` preserve historical snapshots.

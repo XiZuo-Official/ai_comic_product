@@ -97,3 +97,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Store chat messages in Projects, call AI directly from the UI, or introduce a real text provider immediately.
 - Trade-offs: A dedicated Ideas module keeps chat rules independent from Projects and AI internals. Using the existing placeholder AI provider keeps provider selection deferred while validating persistence, credits, context, and UI behavior.
 - Approval status: Approved by user on 2026-07-02 as part of Milestone 9 implementation approval.
+
+### 2026-07-02: Implement Characters as an Isolated Project-Scoped Module
+
+- Decision: Milestone 10 Characters owns character records, version snapshots, and character-to-asset references in `packages/characters`.
+- Context: Comic Studio depends on stable project characters and existing Asset Library references, but character metadata should not belong to Projects or Assets.
+- Alternatives considered: Store characters inside Projects metadata, duplicate asset metadata on characters, or delay reference linking until Comic Studio.
+- Trade-offs: A dedicated Characters module adds schema and package surface now, but preserves module isolation and lets Comic Studio depend on a stable public character contract. Reference links store asset ids only and validate through the Assets public interface, avoiding cross-module business logic leakage.
+- Approval status: Approved by user on 2026-07-02 as part of Milestone 10 implementation.
