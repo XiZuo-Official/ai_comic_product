@@ -57,3 +57,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Integrate Stripe immediately, integrate another billing provider immediately, or delay Milestone 4 until provider selection.
 - Trade-offs: The placeholder adapter keeps module contracts, persistence, UI, webhook idempotency, and credit grant behavior testable without locking the architecture to a provider. A real provider can later be added as a Billing adapter without redesigning Subscription or Credits.
 - Approval status: Approved by user on 2026-07-01 as part of the Milestone 4 plan.
+
+### 2026-07-02: Limit Milestone 5 Project Metadata and Version Creation
+
+- Decision: Milestone 5 project metadata is limited to `name` and `description`. Simple metadata edits must not automatically create `project_versions` records.
+- Context: The docs require project metadata editing and project version persistence, but do not define metadata fields or which changes should create versions.
+- Alternatives considered: Allow a generic metadata object, allow arbitrary PATCH fields, or create project versions for every metadata edit.
+- Trade-offs: Limiting metadata keeps the MVP stable and avoids accidental future scope. Preserving the versioning mechanism without recording routine metadata edits keeps the audit trail useful for future meaningful state snapshots.
+- Approval status: Approved by user on 2026-07-02.

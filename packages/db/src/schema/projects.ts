@@ -7,6 +7,7 @@ export const projects = pgTable(
     id: uuid("id").primaryKey().defaultRandom(),
     ownerId: text("owner_id").notNull(),
     name: varchar("name", { length: 120 }).notNull(),
+    description: varchar("description", { length: 500 }),
     deletedAt: timestamp("deleted_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow()
@@ -52,3 +53,5 @@ export const projectRelations = relations(projects, ({ many, one }) => ({
 
 export type ProjectRow = typeof projects.$inferSelect;
 export type NewProjectRow = typeof projects.$inferInsert;
+export type ProjectSettingsRow = typeof projectSettings.$inferSelect;
+export type ProjectVersionRow = typeof projectVersions.$inferSelect;

@@ -15,6 +15,12 @@ Keep entries short, dated, and additive.
 ## Note
 Implementation changes that affect architecture, APIs, schema, or business rules must be accompanied by matching documentation updates.
 
+## 2026-07-02
+
+- Change: Implemented Milestone 5 Projects and marked it complete.
+- Why it changed: Projects now have formal contracts, modular package boundaries, strict MVP metadata updates, documented APIs, additive metadata persistence, and focused domain tests.
+- Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MVP.md`, `MILESTONES.md`, `MILESTONE_5_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 ## 2026-07-01
 
 - Change: Implemented Milestone 4 Subscription and marked it complete.

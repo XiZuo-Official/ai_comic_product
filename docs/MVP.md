@@ -296,6 +296,10 @@ Provide a container for organizing a comic creation effort, including images, ch
 - Project detail page
 - Project metadata panel
 
+MVP project metadata is limited to:
+- `name`
+- `description`
+
 ### Required APIs
 - `GET /v1/projects`
 - `POST /v1/projects`
@@ -315,6 +319,7 @@ Provide a container for organizing a comic creation effort, including images, ch
 - Empty required title
 - Unauthorized access to another user’s project
 - Archived project opened by mistake
+- Unknown metadata fields submitted to the project update API
 
 ### Acceptance Criteria
 - A user can create a project.

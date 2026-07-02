@@ -4,11 +4,11 @@ import { Input } from "@ai-comic/ui/components/input";
 import { Label } from "@ai-comic/ui/components/label";
 import { listProjects } from "@ai-comic/projects";
 import { auth } from "@clerk/nextjs/server";
-import { ExternalLink, Trash2 } from "lucide-react";
+import { Archive, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 import { EmptyState } from "../../../components/empty-state";
-import { createProjectAction, deleteProjectAction, renameProjectAction } from "./actions";
+import { archiveProjectAction, createProjectAction, renameProjectAction } from "./actions";
 
 export default async function ProjectsPage() {
   const { userId } = await auth();
@@ -27,10 +27,14 @@ export default async function ProjectsPage() {
           <CardDescription>Start a new workspace for story, assets, and comic pages.</CardDescription>
         </CardHeader>
         <CardContent>
-          <form action={createProjectAction} className="flex flex-col gap-3 sm:flex-row sm:items-end">
+          <form action={createProjectAction} className="grid gap-3 lg:grid-cols-[1fr_1.5fr_auto] lg:items-end">
             <div className="flex-1 space-y-2">
               <Label htmlFor="project-name">Project name</Label>
               <Input id="project-name" maxLength={120} name="name" placeholder="Moonlit Courier" required />
+            </div>
+            <div className="flex-1 space-y-2">
+              <Label htmlFor="project-description">Description</Label>
+              <Input id="project-description" maxLength={500} name="description" placeholder="A short note about this comic project" />
             </div>
             <Button type="submit">Create Project</Button>
           </form>
@@ -52,6 +56,9 @@ export default async function ProjectsPage() {
                   <div className="space-y-2">
                     <Label htmlFor={`project-${project.id}`}>Project name</Label>
                     <Input id={`project-${project.id}`} maxLength={120} name="name" required defaultValue={project.name} />
+                    <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
+                      {project.description ?? "No description yet."}
+                    </p>
                   </div>
                   <Button type="submit" variant="secondary">Rename</Button>
                 </form>
@@ -62,11 +69,11 @@ export default async function ProjectsPage() {
                       Open
                     </Link>
                   </Button>
-                  <form action={deleteProjectAction}>
+                  <form action={archiveProjectAction}>
                     <input name="projectId" type="hidden" value={project.id} />
                     <Button type="submit" variant="destructive">
-                      <Trash2 className="h-4 w-4" />
-                      Delete
+                      <Archive className="h-4 w-4" />
+                      Archive
                     </Button>
                   </form>
                 </div>

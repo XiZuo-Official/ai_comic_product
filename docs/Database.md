@@ -164,9 +164,20 @@ The Subscription/Billing module owns all writes to these tables.
 Subscription credit grants must be applied through the Credits public interface and recorded in the credit ledger.
 The migration seeds the placeholder `mvp_creator` plan so the MVP can display and test subscription behavior before a real payment provider is approved.
 
+## Milestone 5 Migration
+
+`infra/migrations/0005_milestone_5_projects.sql` adds:
+- nullable `projects.description`
+
+This migration is additive and does not remove existing data.
+The Projects module owns project metadata writes.
+MVP project metadata is limited to `name` and `description`.
+Project versions remain available for meaningful project state changes, but simple metadata updates such as `name` or `description` edits do not automatically create project version records.
+
 ## Versioning Rules
 
 - `project_versions`, `character_versions`, and `comic_layout_versions` preserve historical snapshots.
+- Project versions should be reserved for meaningful project state changes, not routine MVP metadata edits.
 - AI prompts and provider payloads should be versioned.
 - Export jobs should record the exact input version used.
 

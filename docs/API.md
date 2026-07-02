@@ -32,6 +32,11 @@ The app-owned profile contract exposes only app-specific profile fields and the 
 - `GET /v1/projects/:projectId`
 - `PATCH /v1/projects/:projectId`
 
+Milestone 5 implements these endpoints through the Projects module public interface.
+MVP project metadata is limited to `name` and `description`.
+`PATCH /v1/projects/:projectId` accepts only `name` and `description`; unknown fields are rejected.
+Simple metadata updates do not create project version records.
+
 ### Idea Chat
 - `GET /v1/projects/:projectId/idea-threads`
 - `POST /v1/projects/:projectId/idea-threads`
