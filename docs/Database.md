@@ -56,7 +56,6 @@ Project deletion is implemented as a soft delete through `projects.deleted_at`.
 - `asset_tags`
 
 ### Comic Studio
-- `comic_projects`
 - `comic_pages`
 - `comic_panels`
 - `comic_bubbles`
@@ -238,6 +237,22 @@ Character duplicate handling uses normalized names within active project records
 Character deletion is soft deletion through `characters.deleted_at` and `characters.status`.
 Character versions store JSON snapshots for create, update, delete, and reference changes.
 `character_assets` stores reference asset ids without duplicating asset metadata; asset validity is checked through the Assets public interface.
+
+## Milestone 11 Migration
+
+`infra/migrations/0010_milestone_11_comic_studio.sql` creates:
+- `comic_pages`
+- `comic_panels`
+- `comic_bubbles`
+- `comic_layout_versions`
+
+This migration is additive and does not remove existing data.
+The Comic Studio module owns all writes to these tables.
+Comic Studio records are scoped by authenticated owner and project.
+Panels and bubbles store MVP percentage-based layout geometry so saved layouts can reload consistently across responsive screens.
+Panel asset placement stores an optional `asset_id` reference without duplicating asset metadata; asset validity is checked through the Assets public interface.
+`comic_layout_versions` stores snapshots for page, panel, and bubble layout changes.
+No `comic_projects` table is created for Version 1.0 because the frozen MVP scopes Comic Studio directly to existing Projects.
 
 ## Versioning Rules
 

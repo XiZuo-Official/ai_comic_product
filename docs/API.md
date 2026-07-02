@@ -91,8 +91,22 @@ Asset persistence must never store these public URLs.
 
 ### Comic Studio
 - `GET /v1/projects/:projectId/comic-studio`
+- `GET /v1/projects/:projectId/comic-pages`
 - `POST /v1/projects/:projectId/comic-pages`
+- `GET /v1/comic-pages/:pageId`
+- `PATCH /v1/comic-pages/:pageId`
+- `POST /v1/comic-pages/:pageId/panels`
+- `POST /v1/comic-pages/:pageId/bubbles`
 - `PATCH /v1/comic-panels/:panelId`
+- `PATCH /v1/comic-bubbles/:bubbleId`
+
+Milestone 11 implements these endpoints through the Comic Studio module public interface.
+Comic Studio pages, panels, bubbles, asset placement, and layout versions are project-scoped and authenticated by owner.
+Panel and bubble layout uses MVP percentage-based canvas geometry: `x`, `y`, `width`, and `height`.
+Panel asset placement stores only `assetId`; asset validity and project ownership are verified through the Assets public interface.
+Comic Studio does not call AI providers and does not consume credits for manual layout or text editing.
+Layout changes create `comic_layout_versions` snapshots for future export compatibility.
+The additive panel and bubble creation endpoints are included to satisfy the documented MVP ability to add panels and bubbles.
 
 ### AI Generation
 - `POST /v1/ai/jobs`

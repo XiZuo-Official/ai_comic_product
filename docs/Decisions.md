@@ -105,3 +105,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Store characters inside Projects metadata, duplicate asset metadata on characters, or delay reference linking until Comic Studio.
 - Trade-offs: A dedicated Characters module adds schema and package surface now, but preserves module isolation and lets Comic Studio depend on a stable public character contract. Reference links store asset ids only and validate through the Assets public interface, avoiding cross-module business logic leakage.
 - Approval status: Approved by user on 2026-07-02 as part of Milestone 10 implementation.
+
+### 2026-07-02: Implement Comic Studio Without a Separate Comic Project Table
+
+- Decision: Milestone 11 Comic Studio is scoped directly to existing Projects and creates only `comic_pages`, `comic_panels`, `comic_bubbles`, and `comic_layout_versions`.
+- Context: `MVP_FREEZE.md` and `MILESTONES.md` list those four Comic Studio tables, while an earlier `Database.md` section mentioned `comic_projects`. The frozen MVP and milestone documents are the stricter source for current implementation scope.
+- Alternatives considered: Add a separate `comic_projects` table, or store studio state inside Projects metadata.
+- Trade-offs: Reusing the existing Project boundary avoids redundant project containers and keeps the migration inside frozen MVP scope. If a future feature needs separate comic sub-projects, it should be introduced through an approved future module or additive schema decision.
+- Approval status: Approved by user through Milestone 11 implementation approval.

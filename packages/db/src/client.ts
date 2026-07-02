@@ -5,6 +5,7 @@ import postgres from "postgres";
 import * as aiSchema from "./schema/ai";
 import * as assetSchema from "./schema/assets";
 import * as characterSchema from "./schema/characters";
+import * as comicStudioSchema from "./schema/comic-studio";
 import * as creditSchema from "./schema/credits";
 import * as ideaSchema from "./schema/ideas";
 import * as projectSchema from "./schema/projects";
@@ -33,6 +34,7 @@ export const db = drizzle(sql, {
     ...aiSchema,
     ...assetSchema,
     ...characterSchema,
+    ...comicStudioSchema,
     ...creditSchema,
     ...ideaSchema,
     ...projectSchema,

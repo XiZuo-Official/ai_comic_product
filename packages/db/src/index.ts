@@ -2,6 +2,7 @@ export { db } from "./client";
 export * from "./schema/ai";
 export * from "./schema/assets";
 export * from "./schema/characters";
+export * from "./schema/comic-studio";
 export * from "./schema/credits";
 export * from "./schema/ideas";
 export * from "./schema/projects";

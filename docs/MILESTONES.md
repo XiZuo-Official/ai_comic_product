@@ -355,6 +355,9 @@ Medium
 
 ## Milestone 11: Comic Studio
 
+### Status
+Completed on 2026-07-02.
+
 ### Objective
 Allow a user to create and edit comic pages using panels, bubbles, and assets.
 

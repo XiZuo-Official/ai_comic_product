@@ -15,6 +15,7 @@
     "@ai-comic/assets": "workspace:*",
     "@ai-comic/billing": "workspace:*",
     "@ai-comic/characters": "workspace:*",
+    "@ai-comic/comic-studio": "workspace:*",
     "@ai-comic/config": "workspace:*",
     "@ai-comic/credits": "workspace:*",
     "@ai-comic/db": "workspace:*",
