@@ -17,6 +17,10 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-02
 
+- Change: Implemented Milestone 13 Version 1.0 Release Hardening and marked it complete.
+- Why it changed: The release candidate now has MVP smoke tests, credit regression hardening, production build verification, release-gate documentation, database rollback review, logging review, rate limiting review, and operational monitoring recommendations.
+- Documents updated: `README.md`, `FolderStructure.md`, `RELEASE_CANDIDATE.md`, `MILESTONES.md`, `MILESTONE_13_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Implemented Milestone 12 Export and marked it complete.
 - Why it changed: Users can now create project export jobs from saved Comic Studio content, track export status, download completed HTML artifacts, and view export history through an isolated Export module.
 - Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_12_COMPLETION_REPORT.md`, `CHANGELOG.md`.

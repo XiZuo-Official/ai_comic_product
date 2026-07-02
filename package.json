@@ -14,7 +14,7 @@
     "dev:api": "pnpm --filter @ai-comic/api dev",
     "dev:web": "pnpm --filter @ai-comic/web dev",
     "lint": "turbo lint",
-    "test": "turbo test",
+    "test": "node --test tests/*.test.mjs && turbo test",
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {

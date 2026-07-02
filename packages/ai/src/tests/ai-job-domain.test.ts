@@ -49,6 +49,18 @@ test("credit estimates are owned by the AI job foundation", () => {
   assert.equal(estimateAiJobCredits("image_generation"), 20);
 });
 
+test("release hardening keeps paid MVP AI credit estimates stable", () => {
+  const paidMvpEstimates = {
+    ideaChatMessage: estimateAiJobCredits("text_generation"),
+    singleImageGeneration: estimateAiJobCredits("image_generation")
+  };
+
+  assert.deepEqual(paidMvpEstimates, {
+    ideaChatMessage: 5,
+    singleImageGeneration: 20
+  });
+});
+
 test("default prompt templates are versioned by job type", () => {
   assert.deepEqual(defaultPromptTemplateForType("text_generation"), {
     templateKey: "mvp.text_generation",

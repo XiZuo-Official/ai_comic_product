@@ -15,4 +15,5 @@ See the `/docs` directory:
 - [Module Boundaries](docs/ModuleBoundaries.md)
 - [Decisions](docs/Decisions.md)
 - [Future Roadmap](docs/FutureRoadmap.md)
+- [Release Candidate](docs/RELEASE_CANDIDATE.md)
 - [Changelog](docs/CHANGELOG.md)

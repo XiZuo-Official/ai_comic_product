@@ -49,15 +49,25 @@ test("assertReservationTransition allows valid lifecycle transitions", () => {
   assert.doesNotThrow(() => assertReservationTransition("active", "committed"));
   assert.doesNotThrow(() => assertReservationTransition("active", "released"));
   assert.doesNotThrow(() => assertReservationTransition("committed", "refunded"));
+  assert.doesNotThrow(() => assertReservationTransition("active", "active"));
 });
 
 test("assertReservationTransition rejects invalid lifecycle transitions", () => {
   assert.throws(() => assertReservationTransition("released", "committed"), /Cannot transition/);
   assert.throws(() => assertReservationTransition("refunded", "released"), /Cannot transition/);
+  assert.throws(() => assertReservationTransition("committed", "released"), /Cannot transition/);
+  assert.throws(() => assertReservationTransition("released", "refunded"), /Cannot transition/);
 });
 
 test("normalizeNullableText trims empty values to null", () => {
   assert.equal(normalizeNullableText("  hello  "), "hello");
   assert.equal(normalizeNullableText("   "), null);
   assert.equal(normalizeNullableText(null), null);
+});
+
+test("release hardening guards credit edge cases for paid MVP flows", () => {
+  assert.doesNotThrow(() => assertCanReserve(20, 20));
+  assert.throws(() => assertCanReserve(19, 20), /Insufficient credits/);
+  assert.throws(() => assertPositiveCreditAmount(Number.NaN), /positive integer/);
+  assert.throws(() => assertPositiveCreditAmount(1.25), /positive integer/);
 });

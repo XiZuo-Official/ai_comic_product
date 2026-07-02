@@ -41,6 +41,7 @@ ai-manga-product/
     ModuleBoundaries.md
     Decisions.md
     FutureRoadmap.md
+    RELEASE_CANDIDATE.md
     CHANGELOG.md
   infra/
     migrations/
@@ -107,6 +108,10 @@ Shared public contracts only.
 
 ### `packages/utils`
 Pure helpers that do not contain business rules.
+
+### `tests`
+Release-gate smoke tests and repository-level hardening checks.
+These tests verify MVP route surfaces, documentation sync, migration ordering, and absence of out-of-scope route groups.
 
 ## Boundary Rules
 
