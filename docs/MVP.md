@@ -262,6 +262,10 @@ Allow a user to generate a single image from a prompt or reference inputs.
 - If generation succeeds, credits are committed.
 - If generation fails, unused credits are released or refunded.
 
+Milestone 7 establishes the provider-agnostic AI job and credit lifecycle foundation only.
+The initial infrastructure estimate is 5 credits for text-generation jobs and 20 credits for image-generation jobs.
+Real image generation and asset saving begin in later milestones.
+
 ### Edge Cases
 - Invalid prompt
 - Insufficient credits

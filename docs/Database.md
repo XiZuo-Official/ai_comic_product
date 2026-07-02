@@ -190,6 +190,21 @@ Asset records persist only `storage_provider` and `storage_key`; public URLs mus
 Asset-specific properties use `metadata` JSONB so the schema does not become image-only.
 Asset lifecycle is explicit through `status`, initially `uploading`, `ready`, `failed`, `archived`, and `deleted`.
 
+## Milestone 7 Migration
+
+`infra/migrations/0007_milestone_7_ai_jobs.sql` creates:
+- `ai_jobs`
+- `ai_job_steps`
+- `ai_prompt_templates`
+- `ai_provider_calls`
+
+This migration is additive and does not remove existing data.
+The AI module owns all writes to these tables.
+AI jobs store provider-agnostic job type, status, prompt, prompt template version, input metadata, result metadata, estimated cost, progress, and credit reservation reference.
+The `credit_reservation_id` value is stored as a reference without a cross-domain foreign key so Credits remains the owner of credit accounting.
+Prompt templates are versioned by `template_key` and `version`.
+Provider call records are internal observability records for debugging and must not become feature-module contracts.
+
 ## Versioning Rules
 
 - `project_versions`, `character_versions`, and `comic_layout_versions` preserve historical snapshots.

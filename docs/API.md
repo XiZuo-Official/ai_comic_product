@@ -80,6 +80,15 @@ Asset persistence must never store these public URLs.
 - `GET /v1/ai/jobs/:jobId`
 - `GET /v1/ai/jobs/:jobId/events`
 
+Milestone 7 implements these endpoints through the AI module public interface.
+AI jobs accept provider-agnostic job types and prompts only.
+The MVP foundation supports `text_generation` and `image_generation` job types as infrastructure contracts.
+AI job responses follow the async job contract and do not expose provider ids, model names, SDK payloads, or provider-specific request fields.
+Job creation estimates credits, reserves credits through the Credits public interface, runs the MVP placeholder provider adapter, commits credits on success, and releases credits on failure.
+Prompt templates are versioned by `promptTemplateKey` and `promptTemplateVersion`.
+Provider calls are logged internally for debugging and are not exposed to feature modules.
+Milestone 7 does not implement real model providers or feature-specific generation workflows.
+
 ### Credits
 - `GET /v1/credits/balance`
 - `GET /v1/credits/ledger`

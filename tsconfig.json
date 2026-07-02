@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "@ai-comic/auth": ["packages/auth/src/index.ts"],
+      "@ai-comic/ai": ["packages/ai/src/index.ts"],
       "@ai-comic/assets": ["packages/assets/src/index.ts"],
       "@ai-comic/billing": ["packages/billing/src/index.ts"],
       "@ai-comic/config": ["packages/config/src/index.ts"],

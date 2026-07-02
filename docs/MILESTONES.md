@@ -221,6 +221,8 @@ Medium
 
 ## Milestone 7: AI Job Foundation
 
+Status: Completed on 2026-07-02.
+
 ### Objective
 Create the provider-agnostic AI job layer that supports paid text and image generation.
 

@@ -29,6 +29,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@ai-comic/ai':
+        specifier: workspace:*
+        version: link:../../packages/ai
       '@ai-comic/assets':
         specifier: workspace:*
         version: link:../../packages/assets
@@ -117,6 +120,28 @@ importers:
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.19(tsx@4.22.4)
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  packages/ai:
+    dependencies:
+      '@ai-comic/credits':
+        specifier: workspace:*
+        version: link:../credits
+      '@ai-comic/db':
+        specifier: workspace:*
+        version: link:../db
+      drizzle-orm:
+        specifier: ^0.44.7
+        version: 0.44.7(postgres@3.4.9)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      tsx:
+        specifier: ^4.20.6
+        version: 4.22.4
       typescript:
         specifier: ^5.9.3
         version: 5.9.3

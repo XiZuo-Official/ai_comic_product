@@ -70,7 +70,7 @@ HTTP API, authentication integration, request validation, and async job entry po
 Authentication and authorization contracts.
 
 ### `packages/ai`
-Provider abstraction, prompt orchestration, job execution interfaces, normalization.
+Provider abstraction, prompt orchestration, AI job lifecycle, prompt template versioning, provider call logging, and credit-aware AI execution interfaces.
 
 ### `packages/assets`
 Asset domain logic, upload lifecycle, metadata contracts, normalized tag assignment, and asset persistence access.

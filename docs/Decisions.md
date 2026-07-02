@@ -73,3 +73,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Store duplicated tag names directly on assets, persist public URLs, model only image dimensions and image-specific fields, or defer statuses until later.
 - Trade-offs: Normalized tags and storage indirection add a little more schema and service code now, but protect future provider swaps, non-image assets, and cross-feature asset reuse. Flexible metadata avoids premature schema churn while preserving explicit columns for core invariants.
 - Approval status: Approved by user on 2026-07-02 before Milestone 6 implementation.
+
+### 2026-07-02: Use Placeholder AI Provider Adapter for Milestone 7
+
+- Decision: Milestone 7 uses a deterministic placeholder AI provider adapter and fixed MVP credit estimates of 5 credits for `text_generation` jobs and 20 credits for `image_generation` jobs.
+- Context: The roadmap requires provider-agnostic AI jobs, prompt versioning, provider call logging, and credit reservation/finalization before feature-specific generation or real provider selection.
+- Alternatives considered: Integrate OpenAI or another provider immediately, defer credit integration until Single Image Mode, or allow clients to submit arbitrary credit costs.
+- Trade-offs: The placeholder adapter proves lifecycle, persistence, provider boundaries, and credit behavior without coupling the product to a vendor. Fixed estimates are intentionally conservative MVP infrastructure rules and can be extended through AI module contracts later.
+- Approval status: Approved by user on 2026-07-02 as part of Milestone 7 implementation approval.

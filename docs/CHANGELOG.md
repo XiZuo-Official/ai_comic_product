@@ -17,6 +17,10 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-02
 
+- Change: Implemented Milestone 7 AI Job Foundation and marked it complete.
+- Why it changed: AI jobs now have provider-agnostic contracts, lifecycle persistence, prompt template versioning, provider call logging, placeholder adapter execution, and credit reservation/finalization behavior.
+- Documents updated: `API.md`, `Database.md`, `Decisions.md`, `FolderStructure.md`, `MVP.md`, `MILESTONES.md`, `MILESTONE_7_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Implemented Milestone 6 Asset Library and marked it complete.
 - Why it changed: Assets now have isolated module contracts, storage-provider-independent references, normalized tags, explicit lifecycle status, upload and metadata APIs, project-scoped UI, and focused domain tests.
 - Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MVP.md`, `MILESTONES.md`, `MILESTONE_6_COMPLETION_REPORT.md`, `CHANGELOG.md`.
