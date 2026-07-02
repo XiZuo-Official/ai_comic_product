@@ -19,6 +19,7 @@
     "@ai-comic/config": "workspace:*",
     "@ai-comic/credits": "workspace:*",
     "@ai-comic/db": "workspace:*",
+    "@ai-comic/export": "workspace:*",
     "@ai-comic/ideas": "workspace:*",
     "@ai-comic/projects": "workspace:*",
     "@ai-comic/storage": "workspace:*",

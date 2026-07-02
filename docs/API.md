@@ -163,6 +163,15 @@ Subscription credit grants are recorded through the Credits public interface.
 ### Export
 - `POST /v1/exports`
 - `GET /v1/exports/:exportId`
+- `GET /v1/exports/:exportId/download`
+- `GET /v1/projects/:projectId/exports`
+
+Milestone 12 implements these endpoints through the Export module public interface.
+Version 1.0 export supports the `html` format only.
+Export responses include job status, source snapshot metadata, and artifact metadata.
+Downloads are resolved through the Storage module and must not persist provider-specific public URLs.
+Export history is project-scoped through `GET /v1/projects/:projectId/exports`.
+Export does not consume credits in Version 1.0 unless a future paid export policy is explicitly approved.
 
 ## Request and Response Rules
 

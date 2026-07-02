@@ -254,6 +254,21 @@ Panel asset placement stores an optional `asset_id` reference without duplicatin
 `comic_layout_versions` stores snapshots for page, panel, and bubble layout changes.
 No `comic_projects` table is created for Version 1.0 because the frozen MVP scopes Comic Studio directly to existing Projects.
 
+## Milestone 12 Migration
+
+`infra/migrations/0011_milestone_12_export.sql` creates:
+- `export_jobs`
+- `export_artifacts`
+
+This migration is additive and does not remove existing data.
+The Export module owns all writes to these tables.
+Export jobs are scoped by authenticated owner and project.
+`export_jobs.status` tracks `queued`, `processing`, `completed`, and `failed` lifecycle states.
+`export_jobs.source_snapshot` records the exact Comic Studio page inputs used for the artifact.
+`export_artifacts` stores artifact metadata, `storage_provider`, and `storage_key` only.
+Public download responses must resolve artifact content through the Storage module rather than persisted public URLs.
+Version 1.0 export artifacts use HTML format and do not consume credits.
+
 ## Versioning Rules
 
 - `project_versions`, `character_versions`, and `comic_layout_versions` preserve historical snapshots.

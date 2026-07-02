@@ -113,3 +113,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Add a separate `comic_projects` table, or store studio state inside Projects metadata.
 - Trade-offs: Reusing the existing Project boundary avoids redundant project containers and keeps the migration inside frozen MVP scope. If a future feature needs separate comic sub-projects, it should be introduced through an approved future module or additive schema decision.
 - Approval status: Approved by user through Milestone 11 implementation approval.
+
+### 2026-07-02: Implement Export as HTML Artifact Generation
+
+- Decision: Milestone 12 Export creates project-scoped export jobs and downloadable HTML artifacts through an isolated `packages/export` module.
+- Context: The frozen MVP requires downloadable export artifacts, status tracking, history, and failure states, but does not approve PDF/image rendering, publishing, reader hosting, or paid export processing.
+- Alternatives considered: Add PDF rendering immediately, generate flattened image files, or persist public storage URLs on export artifacts.
+- Trade-offs: HTML export is useful and testable without adding a rendering engine, browser automation dependency, or provider-specific storage URL persistence. PDF/image export can be added later through an approved Export extension without changing existing job and artifact contracts.
+- Approval status: Approved by user through Milestone 12 implementation approval.

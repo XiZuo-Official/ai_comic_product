@@ -392,6 +392,9 @@ High
 
 ## Milestone 12: Export
 
+### Status
+Completed on 2026-07-02.
+
 ### Objective
 Allow a user to export project comic content into downloadable artifacts.
 

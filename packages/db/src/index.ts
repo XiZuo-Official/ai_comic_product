@@ -4,6 +4,7 @@ export * from "./schema/assets";
 export * from "./schema/characters";
 export * from "./schema/comic-studio";
 export * from "./schema/credits";
+export * from "./schema/export";
 export * from "./schema/ideas";
 export * from "./schema/projects";
 export * from "./schema/subscriptions";

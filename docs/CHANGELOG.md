@@ -17,6 +17,10 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-02
 
+- Change: Implemented Milestone 12 Export and marked it complete.
+- Why it changed: Users can now create project export jobs from saved Comic Studio content, track export status, download completed HTML artifacts, and view export history through an isolated Export module.
+- Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_12_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Implemented Milestone 11 Comic Studio and marked it complete.
 - Why it changed: Users can now create comic pages, add/edit panels, add/edit text bubbles, place existing project assets, reload saved layouts, and preserve layout versions through an isolated Comic Studio module.
 - Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_11_COMPLETION_REPORT.md`, `CHANGELOG.md`.
