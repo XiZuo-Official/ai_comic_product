@@ -1,0 +1,25 @@
+{
+  "name": "@ai-comic/ideas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "pnpm typecheck && pnpm test",
+    "test": "tsx --test src/tests/*.test.ts",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@ai-comic/ai": "workspace:*",
+    "@ai-comic/db": "workspace:*",
+    "@ai-comic/projects": "workspace:*",
+    "drizzle-orm": "^0.44.7",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

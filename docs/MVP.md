@@ -371,6 +371,9 @@ Let the user brainstorm story ideas, scene concepts, and prompt direction for th
 - Cost should be estimated before sending a paid prompt.
 - Failed generations should not charge the user for unsuccessful execution.
 
+Milestone 9 implements Idea Chat using the provider-agnostic AI Job Foundation, the placeholder text provider, and project-scoped context snapshots.
+Real provider text generation remains excluded until explicitly approved.
+
 ### Edge Cases
 - Empty message
 - Context too large

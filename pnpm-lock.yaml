@@ -50,6 +50,9 @@ importers:
       '@ai-comic/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@ai-comic/ideas':
+        specifier: workspace:*
+        version: link:../../packages/ideas
       '@ai-comic/projects':
         specifier: workspace:*
         version: link:../../packages/projects
@@ -244,6 +247,31 @@ importers:
       postgres:
         specifier: ^3.4.7
         version: 3.4.9
+
+  packages/ideas:
+    dependencies:
+      '@ai-comic/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@ai-comic/db':
+        specifier: workspace:*
+        version: link:../db
+      '@ai-comic/projects':
+        specifier: workspace:*
+        version: link:../projects
+      drizzle-orm:
+        specifier: ^0.44.7
+        version: 0.44.7(postgres@3.4.9)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      tsx:
+        specifier: ^4.20.6
+        version: 4.22.4
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
   packages/projects:
     dependencies:

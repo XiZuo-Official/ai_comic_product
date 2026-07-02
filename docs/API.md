@@ -40,7 +40,15 @@ Simple metadata updates do not create project version records.
 ### Idea Chat
 - `GET /v1/projects/:projectId/idea-threads`
 - `POST /v1/projects/:projectId/idea-threads`
+- `GET /v1/idea-threads/:threadId`
 - `POST /v1/idea-threads/:threadId/messages`
+
+Milestone 9 implements these endpoints through the Ideas module public interface.
+Idea threads and messages are project-scoped and authenticated by owner.
+Sending a message creates a user message, builds a project context snapshot, runs a provider-agnostic `text_generation` AI job, and persists the assistant response.
+AI provider details, model ids, and SDK payloads must not appear in Idea Chat request contracts.
+The MVP uses the Milestone 7 placeholder provider until a real text provider is explicitly approved.
+Failed AI responses are stored as failed assistant messages and credit release behavior is owned by the AI Job Foundation.
 
 ### Characters
 - `GET /v1/projects/:projectId/characters`

@@ -89,3 +89,11 @@ This document records architectural and product decisions that need to remain st
 - Alternatives considered: Integrate a real image provider immediately, store generated images outside projects, or let the UI call AI and Asset internals directly.
 - Trade-offs: Requiring a project keeps generated output aligned with existing Asset Library ownership. Using the placeholder provider and deterministic placeholder PNG keeps the workflow testable without vendor coupling, while real provider integration can later be added behind the AI provider adapter.
 - Approval status: Approved by user on 2026-07-02 as part of Milestone 8 implementation approval.
+
+### 2026-07-02: Implement Idea Chat as an Isolated Ideas Module
+
+- Decision: Milestone 9 Idea Chat owns thread state, message history, and context snapshots in `packages/ideas`, while AI text generation and credit reservation remain owned by the AI Job Foundation.
+- Context: The frozen MVP requires project-scoped ideation threads, persistent history, AI text responses, context snapshots, and credit usage without introducing real provider SDKs or future multi-agent behavior.
+- Alternatives considered: Store chat messages in Projects, call AI directly from the UI, or introduce a real text provider immediately.
+- Trade-offs: A dedicated Ideas module keeps chat rules independent from Projects and AI internals. Using the existing placeholder AI provider keeps provider selection deferred while validating persistence, credits, context, and UI behavior.
+- Approval status: Approved by user on 2026-07-02 as part of Milestone 9 implementation approval.

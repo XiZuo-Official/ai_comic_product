@@ -17,6 +17,10 @@ Implementation changes that affect architecture, APIs, schema, or business rules
 
 ## 2026-07-02
 
+- Change: Implemented Milestone 9 Idea Chat and marked it complete.
+- Why it changed: Users can now create project-scoped idea threads, send AI-assisted text prompts, preserve conversation history, store context snapshots, and consume credits through the provider-agnostic AI Job Foundation.
+- Documents updated: `API.md`, `Database.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_9_COMPLETION_REPORT.md`, `CHANGELOG.md`.
+
 - Change: Implemented Milestone 8 Single Image Mode and marked it complete.
 - Why it changed: Users can now submit a prompt, preview image-generation credit cost, run a provider-agnostic image generation workflow, save the output as a project asset, and download the generated artifact using the existing AI, Credits, Assets, and Storage boundaries.
 - Documents updated: `API.md`, `MVP.md`, `Decisions.md`, `MILESTONES.md`, `MILESTONE_8_COMPLETION_REPORT.md`, `CHANGELOG.md`.

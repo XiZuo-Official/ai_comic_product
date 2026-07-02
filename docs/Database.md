@@ -205,6 +205,25 @@ The `credit_reservation_id` value is stored as a reference without a cross-domai
 Prompt templates are versioned by `template_key` and `version`.
 Provider call records are internal observability records for debugging and must not become feature-module contracts.
 
+## Milestone 8 Migration
+
+No database migration was added for Milestone 8.
+Single Image Mode reuses AI, Credits, Assets, Tags, and Storage persistence from earlier milestones.
+
+## Milestone 9 Migration
+
+`infra/migrations/0008_milestone_9_idea_chat.sql` creates:
+- `idea_threads`
+- `idea_messages`
+- `idea_context_snapshots`
+
+This migration is additive and does not remove existing data.
+The Ideas module owns all writes to these tables.
+Idea threads are scoped by authenticated owner and project.
+Idea messages belong to idea threads and preserve user and assistant conversation history.
+Idea context snapshots capture the project context and recent conversation used for each AI-assisted response.
+AI job references are stored as ids without making AI provider internals part of the Ideas module contract.
+
 ## Versioning Rules
 
 - `project_versions`, `character_versions`, and `comic_layout_versions` preserve historical snapshots.

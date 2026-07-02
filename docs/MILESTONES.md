@@ -288,6 +288,9 @@ High
 
 ## Milestone 9: Idea Chat
 
+### Status
+Completed on 2026-07-02.
+
 ### Objective
 Allow a user to brainstorm ideas inside a project using AI text generation.
 
